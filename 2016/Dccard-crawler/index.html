@@ -5,19 +5,16 @@
   
   <title>Dccard 爬蟲，透過官方API | Salas&#39;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。
-網站 API 規則網路上流傳多種 Dcard API 與各式 API wrapper 程式套件，不過網站本身似乎在改版中">
+  <meta name="description" content="原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dccard 爬蟲，透過官方API">
 <meta property="og:url" content="http://yoursite.com/2016/Dccard-crawler/index.html">
 <meta property="og:site_name" content="Salas'">
-<meta property="og:description" content="原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。
-網站 API 規則網路上流傳多種 Dcard API 與各式 API wrapper 程式套件，不過網站本身似乎在改版中">
-<meta property="og:updated_time" content="2016-07-12T14:56:48.319Z">
+<meta property="og:description" content="原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。">
+<meta property="og:updated_time" content="2016-07-12T14:58:30.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dccard 爬蟲，透過官方API">
-<meta name="twitter:description" content="原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。
-網站 API 規則網路上流傳多種 Dcard API 與各式 API wrapper 程式套件，不過網站本身似乎在改版中">
+<meta name="twitter:description" content="原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。">
   
     <link rel="alternative" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
   
@@ -90,6 +87,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。<br>這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。</p>
+<a id="more"></a>
 <h1 id="u7DB2_u7AD9_API__u898F_u5247"><a href="#u7DB2_u7AD9_API__u898F_u5247" class="headerlink" title="網站 API 規則"></a>網站 API 規則</h1><p>網路上流傳多種 <code>Dcard</code> API 與各式 API wrapper 程式套件，不過網站本身似乎在改版中 (看起來是為了因應前端的技術 stack 改變，轉換至 React.js 環境開發吧) 變得大量使用非同步請求 (ajax) 來獲得資料並繪製畫面。所以前述的那些套件及早期公開的 API 幾乎通通失效。</p>
 <p>不過重新到網站上透過開發者工具重新觀察便能獲得一些規則，重新組合出網站實際在使用的新版 API。當然這些資訊或許隨著網站改變會失效也不一定 (尤其是 <code>_api</code> 這樣子的命名，明顯是過度產物的感覺)</p>
 <p><strong>API root URL</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://dcard.tw/_api/</span><br></pre></td></tr></table></figure></p>
@@ -146,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/Dccard-crawler/" data-id="ciqjl0ivx000k04wrk8efjgqd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/Dccard-crawler/" data-id="ciqjl1zb3000kx4wre7sifhxt" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2016/Dccard-crawler/#disqus_thread" class="article-comment-link">Comments</a>
       
