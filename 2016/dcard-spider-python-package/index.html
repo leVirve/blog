@@ -5,17 +5,17 @@
   
   <title>Dcard 爬蟲於 Python 實作成果：dcard-spider | Salas&#39;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取的小部分資料。而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。">
+  <meta name="description" content="上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dcard 爬蟲於 Python 實作成果：dcard-spider">
 <meta property="og:url" content="http://yoursite.com/2016/dcard-spider-python-package/index.html">
 <meta property="og:site_name" content="Salas'">
-<meta property="og:description" content="上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取的小部分資料。而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。">
+<meta property="og:description" content="上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。">
 <meta property="og:image" content="http://yoursite.com/2016/dcard-spider-python-package/Giant_spider_strikes.jpg">
-<meta property="og:updated_time" content="2016-07-30T13:28:04.744Z">
+<meta property="og:updated_time" content="2016-07-30T13:52:49.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dcard 爬蟲於 Python 實作成果：dcard-spider">
-<meta name="twitter:description" content="上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取的小部分資料。而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。">
+<meta name="twitter:description" content="上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。">
   
     <link rel="alternative" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
   
@@ -87,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取的小部分資料。<br>而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。</p>
+        <p>上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。<br>而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。</p>
 <p>那麼接下來的概念就是：</p>
 <ol>
 <li><p>我要一隻大蜘蛛（比起 crawler，我選擇 Spider！聽起來就比較猛，以下都用 spider 稱呼這隻網路爬蟲 顆顆）</p>
@@ -135,7 +135,7 @@
 <li><code>num</code>: 取得幾篇的文章後設資訊 (metadata of post)。 / 預設: 30篇</li>
 <li><code>sort</code>: <code>popular</code> / <code>new</code>，決定用什麼排序方法查詢 (sorted by)，最新或最熱門排序。 / 預設: <code>&#39;new&#39;</code></li>
 <li><code>timebound</code>: <code>&#39;{ISO-8601 時間字串}&#39;</code>，若用 <code>new</code> 來排序查詢的話，要查詢到多早。（使用 UTC 時間，依照<a href="https://zh.wikipedia.org/wiki/ISO_8601" target="_blank" rel="external">ISO-8601</a>表示法轉成字串） / 預設: <code>&#39;&#39;</code>（空字串）</li>
-<li><code>callback</code>: 不直接回傳 metas，會先套用此函式再回傳 <code>callback_function</code> 的最終值，可當作一種 reducer，減少資料複雜度。 / 預設: None<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''' scenario examples '''</span></span><br><span class="line">forum = Forum(<span class="string">'studyabroad'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 取得看板熱門 500 篇            </span></span><br><span class="line">metas = forum.get_metas(num=<span class="number">500</span>, sort=<span class="string">'popular'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 取得看板 500 篇</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> 保留很多讚的文章<span class="params">(metas)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [meta <span class="keyword">for</span> meta <span class="keyword">in</span> metas <span class="keyword">if</span> meta[<span class="string">'likeCount'</span>] &gt;= <span class="number">50</span>]</span><br><span class="line">metas = forum.get_metas(num=<span class="number">500</span>, callback=保留很多讚的文章)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 取得 無限多篇 文章資訊，直到該板無文章</span></span><br><span class="line">metas = forum.get_metas(num=forums.infinite_page)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 取得日期在 最近三個月 的文章資訊</span></span><br><span class="line">boundary_date = datetime.datetime.utcnow() - datetime.timedelta(months=<span class="number">3</span>)</span><br><span class="line">metas = forum.get_metas(</span><br><span class="line">            num=forums.infinite_page, timebound=boundary_date.isoformat())</span><br></pre></td></tr></table></figure>
+<li><code>callback</code>: 不直接回傳 metas，會先套用此函式再回傳 <code>callback_function</code> 的最終值，可當作一種 reducer，減少資料複雜度。 / 預設: None<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''' example scenarios '''</span></span><br><span class="line">forum = Forum(<span class="string">'studyabroad'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 取得看板熱門 500 篇            </span></span><br><span class="line">metas = forum.get_metas(num=<span class="number">500</span>, sort=<span class="string">'popular'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 取得看板近 1000 篇中，likeCount 夠多的</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> 保留很多讚的文章<span class="params">(metas)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [meta <span class="keyword">for</span> meta <span class="keyword">in</span> metas <span class="keyword">if</span> meta[<span class="string">'likeCount'</span>] &gt;= <span class="number">50</span>]</span><br><span class="line">metas = forum.get_metas(num=<span class="number">1000</span>, callback=保留很多讚的文章)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 取得 無限多篇 文章資訊，直到該板無文章</span></span><br><span class="line">metas = forum.get_metas(num=forums.infinite_page)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 取得日期在 最近三個月 的文章資訊</span></span><br><span class="line">boundary_date = datetime.datetime.utcnow() - datetime.timedelta(months=<span class="number">3</span>)</span><br><span class="line">metas = forum.get_metas(</span><br><span class="line">            num=forums.infinite_page, timebound=boundary_date.isoformat())</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -167,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/dcard-spider-python-package/" data-id="cir8z34v30008jowrsvedvz5f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/dcard-spider-python-package/" data-id="cir98mxc7000kswwrwe7yc9l7" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2016/dcard-spider-python-package/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -205,7 +205,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -214,7 +214,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -223,7 +223,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hello/" style="font-size: 10px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/開箱文/" style="font-size: 10px;">開箱文</a>
+      <a href="/tags/Hello/" style="font-size: 10px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/開箱文/" style="font-size: 10px;">開箱文</a>
     </div>
   </div>
 
