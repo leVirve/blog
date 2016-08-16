@@ -6,13 +6,15 @@ categories:
   - Python
 date: 2016-02-09 22:52:00
 ---
-![The Social Network 場景 @www.blu-ray.com](http://images2.static-bluray.com/reviews/3695_1.jpg)
-<!--more-->
 
-# 科普知識
+
+# 知識科普
 先不多做解釋直接看看，Wiki 怎麼說: [網路爬蟲](https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B)
 > 是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。
 
+{% asset_img demo.jpg The Social Network 場景 @www.blu-ray.com %}
+
+<!--more-->
 
 # 正文
 
