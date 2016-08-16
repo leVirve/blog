@@ -11,9 +11,8 @@ script:
   - npm run build
 
 after_success:
-  - git config --global user.name "leVirve" 
+  - git config --global user.name "leVirve@Travis" 
   - git config --global user.email "gae.m.project@gmail.com"
-  - git clone --branch master https://github.com/leVirve/leVirve.github.io.git .deploy_git
   - npm run deploy
 
 branches:
