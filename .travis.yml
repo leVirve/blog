@@ -1,0 +1,30 @@
+language: node_js
+
+node_js:
+  - "6"
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - git config --global user.name "leVirve" 
+  - git config --global user.email "gae.m.project@gmail.com"
+
+install:
+  - npm run build
+
+script:
+  - hexo clean
+  - hexo generate
+
+after_success:
+  - cd ./public
+  - git init
+  - git add --all .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --quiet --force https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master
+
+branches:
+  only:
+    - raw
