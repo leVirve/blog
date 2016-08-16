@@ -66,9 +66,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hexo-start" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hexo-deploy-through-travisci" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/hexo-start/" class="article-date">
+    <a href="/2016/hexo-deploy-through-travisci/" class="article-date">
   <time datetime="2016-08-16T11:06:47.000Z" itemprop="datePublished">2016-08-16</time>
 </a>
     
@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/hexo-start/">使用 Travis CI 自動發布 hexo</a>
+      <a class="article-title" href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 靜態頁面</a>
     </h1>
   
 
@@ -96,19 +96,20 @@
 </ul>
 <p>這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> git@github.com:leVirve/leVirve.github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> push by hexo-deploy</div><div class="line"></div></pre></td></tr></table></figure>
-<p>然後打開 terminal 快樂地打上兩行指令就完成新文章更新和發布了！</p>
+<p>然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate  <span class="comment"># 可縮寫成 =&gt; hexo g</span></div><div class="line">hexo deploy    <span class="comment"># 可縮寫成 =&gt; hexo d</span></div></pre></td></tr></table></figure>
+<p>兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。</p>
         
           <p class="article-more-link">
-            <a href="/2016/hexo-start/#more">Read More</a>
+            <a href="/2016/hexo-deploy-through-travisci/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/hexo-start/" data-id="cirxgf52i0008nufubnihi4g7" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cirxheunk0008o1famfl552ps" class="article-share-link">Share</a>
       
-        <a href="https://levirve.github.io/2016/hexo-start/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://levirve.github.io/2016/hexo-deploy-through-travisci/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hello/">Hello</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
@@ -162,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/dcard-spider-python-package/" data-id="cirxgf52e0006nufu5euoyytg" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/dcard-spider-python-package/" data-id="cirxheung0006o1falxy15vzl" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/dcard-spider-python-package/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -207,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/Dccard-crawler/" data-id="cirxgf5280004nufuc9sbzusc" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/Dccard-crawler/" data-id="cirxheun90004o1fa2c60btph" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/Dccard-crawler/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -256,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/爬蟲/" data-id="cirxgf52m000dnuful2vdaxpc" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/爬蟲/" data-id="cirxheuns000do1falr5idvca" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/爬蟲/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -301,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2015/hello-world/" data-id="cirxgf52g0007nufui3qhl1ee" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2015/hello-world/" data-id="cirxheuni0007o1fa9pbo8tsx" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2015/hello-world/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -346,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2015/python-fantasy/" data-id="cirxgf52k000bnufu45gnublq" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2015/python-fantasy/" data-id="cirxheunm000bo1fa5n01rx8h" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2015/python-fantasy/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -412,7 +413,7 @@
       <ul>
         
           <li>
-            <a href="/2016/hexo-start/">使用 Travis CI 自動發布 hexo</a>
+            <a href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 靜態頁面</a>
           </li>
         
           <li>

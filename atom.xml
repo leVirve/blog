@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://levirve.github.io/"/>
-  <updated>2016-08-16T12:37:06.022Z</updated>
+  <updated>2016-08-16T13:04:49.562Z</updated>
   <id>https://levirve.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用 Travis CI 自動發布 hexo</title>
-    <link href="https://levirve.github.io/2016/hexo-start/"/>
-    <id>https://levirve.github.io/2016/hexo-start/</id>
+    <title>使用 Travis CI 自動發布 hexo 靜態頁面</title>
+    <link href="https://levirve.github.io/2016/hexo-deploy-through-travisci/"/>
+    <id>https://levirve.github.io/2016/hexo-deploy-through-travisci/</id>
     <published>2016-08-16T11:06:47.000Z</published>
-    <updated>2016-08-16T12:37:06.022Z</updated>
+    <updated>2016-08-16T13:04:49.562Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
 <p>原本使用 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：</p>
@@ -30,10 +30,48 @@
 </ul>
 <p>這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> git@github.com:leVirve/leVirve.github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> push by hexo-deploy</div><div class="line"></div></pre></td></tr></table></figure>
-<p>然後打開 terminal 快樂地打上兩行指令就完成新文章更新和發布了！</p>
+<p>然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate  <span class="comment"># 可縮寫成 =&gt; hexo g</span></div><div class="line">hexo deploy    <span class="comment"># 可縮寫成 =&gt; hexo d</span></div></pre></td></tr></table></figure>
+<p>兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。</p>
 <a id="more"></a>
-<h1 id="Personal-Access-Tokens"><a href="#Personal-Access-Tokens" class="headerlink" title="Personal Access Tokens"></a>Personal Access Tokens</h1><h1 id="Config-Travis-CI-console"><a href="#Config-Travis-CI-console" class="headerlink" title="Config Travis CI console"></a>Config Travis CI console</h1><h1 id="Your-travis-yml-config"><a href="#Your-travis-yml-config" class="headerlink" title="Your .travis.yml config"></a>Your .travis.yml config</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">apt-get install ruby ruby-dev</div><div class="line">gem install travis</div><div class="line">travis login --github-token <span class="string">'token'</span> <span class="comment"># token即是上面複製的那個token串</span></div><div class="line">travis whoami <span class="comment"># 顯示使用者訊息</span></div></pre></td></tr></table></figure>]]></content>
+<p>直到某天開始，吃飽沒事就重灌、換系統，身為一個XXX，一個月重灌個幾次也很正常沒什麼嘛 (ﾟ3ﾟ)～♪<br>（其實都上面這個不是主因，是因為我常常手滑就把 Node.js 移除了，想說又沒怎麼在寫 node.js 然後 npm module 也順手清乾淨 XDDD）</p>
+<h2 id="到-Github-產生-Personal-Access-Tokens"><a href="#到-Github-產生-Personal-Access-Tokens" class="headerlink" title="到 Github 產生 Personal Access Tokens"></a>到 Github 產生 Personal Access Tokens</h2><p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限就 <code>repo</code> all 跟 <code>user:email</code> 就好，然後 generate。</p>
+<ul>
+<li><code>repo</code> scope 也可能只須第二項 <code>reepo_deployment</code>，並未進一步測試。</li>
+</ul>
+<img src="/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token">
+<h2 id="Travis-CI-settings-for-project"><a href="#Travis-CI-settings-for-project" class="headerlink" title="Travis CI settings for project"></a>Travis CI settings for project</h2><p>到該 repository 設定底下，把剛剛產生的 token 新增進 Travis 環境變數，在後面的設定中會用到這個環境變數執行 <code>git push</code> 到 Github 完成發布。</p>
+<img src="/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
+<h2 id="Your-travis-yml-config"><a href="#Your-travis-yml-config" class="headerlink" title="Your .travis.yml config"></a>Your .travis.yml config</h2><p>附上我的 <code>.travis.yml</code> 做為參考</p>
+<ul>
+<li><p><code>before_script</code>: 在所有建置動作之前，先把 <code>master</code> 分支 (也就是最後 blog 靜態頁面) clone 到 <code>./public</code> 資料夾 (<code>hexo generate</code> 會預設產生結果到這裡)。目的是為了<strong>保留之前的 <code>commits</code> 紀錄</strong>，讓本次的新結果作為最新 <code>commit</code> 提交出去。</p>
+</li>
+<li><p><code>script</code>: 雖然是透過 npm run build，不過實際上就是 <code>hexo generate</code> (可以參閱我的 <a href="https://github.com/leVirve/leVirve.github.io/blob/raw/package.json#L9" target="_blank" rel="external">package.json</a> 設定)</p>
+</li>
+<li><p><code>after_success</code>: 在成功之後，準備將本次改變 (changes) 提交出去 (commit)。build 完的成果在 <code>./public</code>，然後照著一般 <code>git</code> 提交方法操作，最後透過 <code>DEPLOY_TOKEN</code> (從 Github 產生的 personal access token，並加入 travis 環境變數) <code>git push</code> 到 <code>master</code> 分支上。 完工 (ゝ∀･)b！</p>
+</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> node_modules</div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> git clone --branch master https://github.com/leVirve/leVirve.github.io public</div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> npm run build</div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> cd public</div><div class="line"><span class="bullet">  -</span> git config user.name <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> git config user.email <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> git add --all .</div><div class="line"><span class="bullet">  -</span> git commit -m <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> git push https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master</div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> raw</div></pre></td></tr></table></figure>
+<h2 id="Continuous-delivery-持續交付-d-d＇∀＇"><a href="#Continuous-delivery-持續交付-d-d＇∀＇" class="headerlink" title="Continuous delivery 持續交付 d(d＇∀＇)"></a>Continuous delivery 持續交付 d(d＇∀＇)</h2><p>所以現在只要寫了一篇文章，然後把內容 commit 到 <code>raw</code> branch 就會自動透過 travis 建置併發布到 <code>master</code> 分支上 (也就是 xxxxx.github.io 顯示的靜態頁面)。</p>
+<p>這有比剛剛那兩行 hexo 指令方便嗎？？？<br>.<br>.<br>.<br>.<br>.<br>並沒有 XDDD 若單比較指令長度，git commit 一次就要打一大堆字</p>
+<p>但是好處是：</p>
+<ul>
+<li><p>不用 <del>怕我手滑</del> 安裝 node.js 和 <code>hexo</code> 以及他的相依 modules 好夥伴</p>
+<ul>
+<li>到哪都能寫，只要我能下 <code>git</code> commands，誰都別想攔我！</li>
+<li>就算沒有 <code>git</code> commands，還能直接開 Github 網頁登入之後新增檔案到 <code>raw</code> branch，網頁直接 commit！</li>
+<li>用手機登入 Github 網頁發文也 OK 唷！</li>
+</ul>
+</li>
+<li><p>跟上潮流</p>
+<ul>
+<li>既然有自動化工具，而且 BOT 不會忘記指令不會打錯字，幹嘛繼續當模仿工具做事的人？</li>
+<li>做個堂堂正正使用工具的好青年 (`・ω・´)</li>
+</ul>
+</li>
+</ul>
+<p><strong>我就只是放假無聊，找個習題做做 練習個 travis 自動集成、自動交付也是不錯的 ξ( ✿＞◡❛)</strong></p>
+]]></content>
     
     <summary type="html">
     
@@ -45,8 +83,9 @@
 &lt;/ul&gt;
 &lt;p&gt;這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。&lt;/p&gt;
 &lt;figure class=&quot;highlight yaml&quot;&gt;&lt;figcaption&gt;&lt;span&gt;_config.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Deployment&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## Docs: http://hexo.io/docs/deployment.html&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;deploy:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  type:&lt;/span&gt; git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  repo:&lt;/span&gt; git@github.com:leVirve/leVirve.github.io.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  branch:&lt;/span&gt; master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  message:&lt;/span&gt; push by hexo-deploy&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然後打開 terminal 快樂地打上兩行指令就完成新文章更新和發布了！&lt;/p&gt;
+&lt;p&gt;然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo generate  &lt;span class=&quot;comment&quot;&gt;# 可縮寫成 =&amp;gt; hexo g&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo deploy    &lt;span class=&quot;comment&quot;&gt;# 可縮寫成 =&amp;gt; hexo d&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。&lt;/p&gt;
     
     </summary>
     
@@ -64,7 +103,7 @@
     <link href="https://levirve.github.io/2016/dcard-spider-python-package/"/>
     <id>https://levirve.github.io/2016/dcard-spider-python-package/</id>
     <published>2016-07-30T17:24:44.000Z</published>
-    <updated>2016-08-16T12:37:06.018Z</updated>
+    <updated>2016-08-16T13:04:49.558Z</updated>
     
     <content type="html"><![CDATA[<p>上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。<br>而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。</p>
 <p>那麼接下來的概念就是：</p>
@@ -233,7 +272,7 @@
     <link href="https://levirve.github.io/2016/Dccard-crawler/"/>
     <id>https://levirve.github.io/2016/Dccard-crawler/</id>
     <published>2016-07-12T21:55:44.000Z</published>
-    <updated>2016-08-16T12:37:06.018Z</updated>
+    <updated>2016-08-16T13:04:49.558Z</updated>
     
     <content type="html"><![CDATA[<p>原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。<br>這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。</p>
 <a id="more"></a>
@@ -309,7 +348,7 @@
     <link href="https://levirve.github.io/2016/%E7%88%AC%E8%9F%B2/"/>
     <id>https://levirve.github.io/2016/爬蟲/</id>
     <published>2016-02-09T22:52:00.000Z</published>
-    <updated>2016-08-16T12:37:06.022Z</updated>
+    <updated>2016-08-16T13:04:49.566Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://images2.static-bluray.com/reviews/3695_1.jpg" alt="The Social Network 場景 @www.blu-ray.com"><br><a id="more"></a></p>
 <h1 id="科普知識"><a href="#科普知識" class="headerlink" title="科普知識"></a>科普知識</h1><p>先不多做解釋直接看看，Wiki 怎麼說: <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B" target="_blank" rel="external">網路爬蟲</a></p>
@@ -348,7 +387,7 @@
     <link href="https://levirve.github.io/2015/hello-world/"/>
     <id>https://levirve.github.io/2015/hello-world/</id>
     <published>2015-12-07T11:06:47.000Z</published>
-    <updated>2016-08-16T12:37:06.022Z</updated>
+    <updated>2016-08-16T13:04:49.562Z</updated>
     
     <content type="html"><![CDATA[
 <p>N年前就說重返來寫寫部落格自娛娛人，現在終於準備開始啦(吧?)<br><a id="more"></a></p>
@@ -392,7 +431,7 @@
     <link href="https://levirve.github.io/2015/python-fantasy/"/>
     <id>https://levirve.github.io/2015/python-fantasy/</id>
     <published>2015-07-09T22:52:00.000Z</published>
-    <updated>2016-08-16T12:37:06.022Z</updated>
+    <updated>2016-08-16T13:04:49.566Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Charpter-1"><a href="#Charpter-1" class="headerlink" title="Charpter 1"></a>Charpter 1</h1><img src="/2015/python-fantasy/fantasy.jpg" alt="photo-manipulation-digital-art-421405" title="photo-manipulation-digital-art-421405">
 <a id="more"></a>

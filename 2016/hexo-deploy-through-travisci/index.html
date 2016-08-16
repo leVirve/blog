@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用 Travis CI 自動發布 hexo 靜態頁面 | Salas&#39;</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
+原本使用 hexo-deployer-git 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：
+
+Github SSH Key: for git@github.com:leVirve/leVirve.githu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Travis CI 自動發布 hexo 靜態頁面">
+<meta property="og:url" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/index.html">
+<meta property="og:site_name" content="Salas'">
+<meta property="og:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
+原本使用 hexo-deployer-git 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：
+
+Github SSH Key: for git@github.com:leVirve/leVirve.githu">
+<meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/github_token.png">
+<meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/travis_console.png">
+<meta property="og:updated_time" content="2016-08-16T13:04:49.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 Travis CI 自動發布 hexo 靜態頁面">
+<meta name="twitter:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
+原本使用 hexo-deployer-git 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：
+
+Github SSH Key: for git@github.com:leVirve/leVirve.githu">
+<meta name="twitter:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/github_token.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Salas&#39;</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do it for your pride.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo-deploy-through-travisci" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/hexo-deploy-through-travisci/" class="article-date">
+  <time datetime="2016-08-16T11:06:47.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用 Travis CI 自動發布 hexo 靜態頁面
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
+<p>原本使用 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：</p>
+<ul>
+<li><strong>Github SSH Key:</strong> for <code>git@github.com:leVirve/leVirve.github.io.git</code></li>
+<li><strong>Personal Access Token:</strong> for <code>https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git</code></li>
+</ul>
+<p>這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> git@github.com:leVirve/leVirve.github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> push by hexo-deploy</div><div class="line"></div></pre></td></tr></table></figure>
+<p>然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate  <span class="comment"># 可縮寫成 =&gt; hexo g</span></div><div class="line">hexo deploy    <span class="comment"># 可縮寫成 =&gt; hexo d</span></div></pre></td></tr></table></figure>
+<p>兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。</p>
+<a id="more"></a>
+<p>直到某天開始，吃飽沒事就重灌、換系統，身為一個XXX，一個月重灌個幾次也很正常沒什麼嘛 (ﾟ3ﾟ)～♪<br>（其實都上面這個不是主因，是因為我常常手滑就把 Node.js 移除了，想說又沒怎麼在寫 node.js 然後 npm module 也順手清乾淨 XDDD）</p>
+<h2 id="到-Github-產生-Personal-Access-Tokens"><a href="#到-Github-產生-Personal-Access-Tokens" class="headerlink" title="到 Github 產生 Personal Access Tokens"></a>到 Github 產生 Personal Access Tokens</h2><p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限就 <code>repo</code> all 跟 <code>user:email</code> 就好，然後 generate。</p>
+<ul>
+<li><code>repo</code> scope 也可能只須第二項 <code>reepo_deployment</code>，並未進一步測試。</li>
+</ul>
+<img src="/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token">
+<h2 id="Travis-CI-settings-for-project"><a href="#Travis-CI-settings-for-project" class="headerlink" title="Travis CI settings for project"></a>Travis CI settings for project</h2><p>到該 repository 設定底下，把剛剛產生的 token 新增進 Travis 環境變數，在後面的設定中會用到這個環境變數執行 <code>git push</code> 到 Github 完成發布。</p>
+<img src="/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
+<h2 id="Your-travis-yml-config"><a href="#Your-travis-yml-config" class="headerlink" title="Your .travis.yml config"></a>Your .travis.yml config</h2><p>附上我的 <code>.travis.yml</code> 做為參考</p>
+<ul>
+<li><p><code>before_script</code>: 在所有建置動作之前，先把 <code>master</code> 分支 (也就是最後 blog 靜態頁面) clone 到 <code>./public</code> 資料夾 (<code>hexo generate</code> 會預設產生結果到這裡)。目的是為了<strong>保留之前的 <code>commits</code> 紀錄</strong>，讓本次的新結果作為最新 <code>commit</code> 提交出去。</p>
+</li>
+<li><p><code>script</code>: 雖然是透過 npm run build，不過實際上就是 <code>hexo generate</code> (可以參閱我的 <a href="https://github.com/leVirve/leVirve.github.io/blob/raw/package.json#L9" target="_blank" rel="external">package.json</a> 設定)</p>
+</li>
+<li><p><code>after_success</code>: 在成功之後，準備將本次改變 (changes) 提交出去 (commit)。build 完的成果在 <code>./public</code>，然後照著一般 <code>git</code> 提交方法操作，最後透過 <code>DEPLOY_TOKEN</code> (從 Github 產生的 personal access token，並加入 travis 環境變數) <code>git push</code> 到 <code>master</code> 分支上。 完工 (ゝ∀･)b！</p>
+</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> node_modules</div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> git clone --branch master https://github.com/leVirve/leVirve.github.io public</div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> npm run build</div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> cd public</div><div class="line"><span class="bullet">  -</span> git config user.name <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> git config user.email <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> git add --all .</div><div class="line"><span class="bullet">  -</span> git commit -m <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> git push https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master</div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> raw</div></pre></td></tr></table></figure>
+<h2 id="Continuous-delivery-持續交付-d-d＇∀＇"><a href="#Continuous-delivery-持續交付-d-d＇∀＇" class="headerlink" title="Continuous delivery 持續交付 d(d＇∀＇)"></a>Continuous delivery 持續交付 d(d＇∀＇)</h2><p>所以現在只要寫了一篇文章，然後把內容 commit 到 <code>raw</code> branch 就會自動透過 travis 建置併發布到 <code>master</code> 分支上 (也就是 xxxxx.github.io 顯示的靜態頁面)。</p>
+<p>這有比剛剛那兩行 hexo 指令方便嗎？？？<br>.<br>.<br>.<br>.<br>.<br>並沒有 XDDD 若單比較指令長度，git commit 一次就要打一大堆字</p>
+<p>但是好處是：</p>
+<ul>
+<li><p>不用 <del>怕我手滑</del> 安裝 node.js 和 <code>hexo</code> 以及他的相依 modules 好夥伴</p>
+<ul>
+<li>到哪都能寫，只要我能下 <code>git</code> commands，誰都別想攔我！</li>
+<li>就算沒有 <code>git</code> commands，還能直接開 Github 網頁登入之後新增檔案到 <code>raw</code> branch，網頁直接 commit！</li>
+<li>用手機登入 Github 網頁發文也 OK 唷！</li>
+</ul>
+</li>
+<li><p>跟上潮流</p>
+<ul>
+<li>既然有自動化工具，而且 BOT 不會忘記指令不會打錯字，幹嘛繼續當模仿工具做事的人？</li>
+<li>做個堂堂正正使用工具的好青年 (`・ω・´)</li>
+</ul>
+</li>
+</ul>
+<p><strong>我就只是放假無聊，找個習題做做 練習個 travis 自動集成、自動交付也是不錯的 ξ( ✿＞◡❛)</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cirxheunk0008o1famfl552ps" class="article-share-link">Share</a>
+      
+        <a href="https://levirve.github.io/2016/hexo-deploy-through-travisci/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hello/">Hello</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/dcard-spider-python-package/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Dcard 爬蟲於 Python 實作成果：dcard-spider</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hello/" style="font-size: 15px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/開箱文/" style="font-size: 15px;">開箱文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 靜態頁面</a>
+          </li>
+        
+          <li>
+            <a href="/2016/dcard-spider-python-package/">Dcard 爬蟲於 Python 實作成果：dcard-spider</a>
+          </li>
+        
+          <li>
+            <a href="/2016/Dccard-crawler/">Dccard 爬蟲，透過官方API</a>
+          </li>
+        
+          <li>
+            <a href="/2016/爬蟲/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
+          </li>
+        
+          <li>
+            <a href="/2015/hello-world/">你好，我是…</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Salas (leVirve)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'salasnote';
+  
+  var disqus_url = 'https://levirve.github.io/2016/hexo-deploy-through-travisci/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
