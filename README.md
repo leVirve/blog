@@ -4,7 +4,7 @@ Here are my personal Hexo blog source code.
 
 *Build status of `raw`*
 
-![Build Status](https://img.shields.io/travis/leVirve/leVirve.github.io/raw.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/leVirve/leVirve.github.io/raw.svg?style=flat-square)](https://travis-ci.org/leVirve/leVirve.github.io)
 
 - `raw` branch: contains the **raw markown posts** and **config** with Hexo.
 - `master` branch: static github pages which is automatically continous delivery by `TravisCI`.
