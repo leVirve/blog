@@ -7,23 +7,14 @@ cache:
   directories:
     - node_modules
 
-before_install:
-  - git config --global user.name "leVirve" 
-  - git config --global user.email "gae.m.project@gmail.com"
-
-install:
+script:
   - npm run build
 
-script:
-  - hexo clean
-  - hexo generate
-
 after_success:
-  - cd ./public
-  - git init
-  - git add --all .
-  - git commit -m "Travis CI Auto Builder"
-  - git push --quiet --force https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master
+  - git config --global user.name "leVirve" 
+  - git config --global user.email "gae.m.project@gmail.com"
+  - git clone --branch master https://github.com/leVirve/leVirve.github.io.git .deploy_git
+  - npm run deploy
 
 branches:
   only:
