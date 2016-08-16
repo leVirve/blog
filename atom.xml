@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://levirve.github.io/"/>
-  <updated>2016-08-16T03:33:40.910Z</updated>
+  <updated>2016-08-16T04:38:30.303Z</updated>
   <id>https://levirve.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你好，這是我的名片</title>
+    <link href="https://levirve.github.io/2016/hexo-start/"/>
+    <id>https://levirve.github.io/2016/hexo-start/</id>
+    <published>2016-08-16T03:06:47.000Z</published>
+    <updated>2016-08-16T04:38:30.303Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ruby ruby-dev</span><br><span class="line">gem install travis</span><br><span class="line">travis login --github-token <span class="string">'token'</span> <span class="comment"># token即是上面複製的那個token串</span></span><br><span class="line">travis whoami <span class="comment"># 顯示使用者訊息</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+    
+    </summary>
+    
+    
+      <category term="Hello" scheme="https://levirve.github.io/tags/Hello/"/>
+    
+      <category term="Hexo" scheme="https://levirve.github.io/tags/Hexo/"/>
+    
+      <category term="開箱文" scheme="https://levirve.github.io/tags/%E9%96%8B%E7%AE%B1%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Dcard 爬蟲於 Python 實作成果：dcard-spider</title>
