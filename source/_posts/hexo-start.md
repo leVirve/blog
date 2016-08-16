@@ -3,6 +3,8 @@ date: 2016-08-16 11:06:47
 tags: [開箱文, Hello, Hexo]
 ---
 
+Hexo
+
 ```bash
 apt-get install ruby ruby-dev
 gem install travis

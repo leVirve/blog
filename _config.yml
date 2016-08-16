@@ -80,6 +80,6 @@ deploy:
   # message: push by hexo-deploy
 
   type: git
-  repo: https://$DEPLOY_REPO@github.com/leVirve/leVirve.github.io.git
+  repo: git@github.com:leVirve/leVirve.github.io.git
   branch: master
   message: push by hexo-deploy

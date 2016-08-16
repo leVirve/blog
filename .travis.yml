@@ -11,9 +11,13 @@ script:
   - npm run build
 
 after_success:
-  - git config --global user.name "leVirve@Travis" 
-  - git config --global user.email "gae.m.project@gmail.com"
-  - npm run deploy
+  - cd ./public
+  - git init
+  - git config user.name "leVirve@Travis" 
+  - git config user.email "gae.m.project@gmail.com"
+  - git add --all .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --quiet --force https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master
 
 branches:
   only:
