@@ -3,30 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用 Travis CI 自動發布 hexo 靜態頁面 | Salas&#39;</title>
+  <title>使用 Travis CI 自動發布 hexo 到 Github pages | Salas&#39;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
-原本使用 hexo-deployer-git 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：
-
-Github SSH Key: for git@github.com:leVirve/leVirve.githu">
+-  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 Travis CI 自動發布 hexo 靜態頁面">
+<meta property="og:title" content="使用 Travis CI 自動發布 hexo 到 Github pages">
 <meta property="og:url" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/index.html">
 <meta property="og:site_name" content="Salas'">
 <meta property="og:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
-原本使用 hexo-deployer-git 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：
-
-Github SSH Key: for git@github.com:leVirve/leVirve.githu">
+-  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
+<meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/branches.png">
 <meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/github_token.png">
 <meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/travis_console.png">
-<meta property="og:updated_time" content="2016-08-16T13:04:49.562Z">
+<meta property="og:updated_time" content="2016-08-16T15:45:50.452Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 Travis CI 自動發布 hexo 靜態頁面">
+<meta name="twitter:title" content="使用 Travis CI 自動發布 hexo 到 Github pages">
 <meta name="twitter:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
-原本使用 hexo-deployer-git 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：
-
-Github SSH Key: for git@github.com:leVirve/leVirve.githu">
-<meta name="twitter:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/github_token.png">
+-  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
+<meta name="twitter:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/branches.png">
   
     <link rel="alternate" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
   
@@ -91,7 +86,7 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
         
   
     <h1 class="article-title" itemprop="name">
-      使用 Travis CI 自動發布 hexo 靜態頁面
+      使用 Travis CI 自動發布 hexo 到 Github pages
     </h1>
   
 
@@ -100,6 +95,8 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
     <div class="article-entry" itemprop="articleBody">
       
         <p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
+<p>-<br>  <strong>認真原因：</strong> 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw <code>Markdown</code> documents），設定檔 （config） 保存在遠端，就失去部分使用 Github 等 remote repository 的意義了。<br>-</p>
+<h2 id="原始方法"><a href="#原始方法" class="headerlink" title="原始方法"></a>原始方法</h2><p>只有單一分支 (master)，並手動產生靜態檔然後透過 git 提交發布靜態檔上的變更。</p>
 <p>原本使用 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：</p>
 <ul>
 <li><strong>Github SSH Key:</strong> for <code>git@github.com:leVirve/leVirve.github.io.git</code></li>
@@ -111,36 +108,50 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate  <span class="comment"># 可縮寫成 =&gt; hexo g</span></div><div class="line">hexo deploy    <span class="comment"># 可縮寫成 =&gt; hexo d</span></div></pre></td></tr></table></figure>
 <p>兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。</p>
 <a id="more"></a>
-<p>直到某天開始，吃飽沒事就重灌、換系統，身為一個XXX，一個月重灌個幾次也很正常沒什麼嘛 (ﾟ3ﾟ)～♪<br>（其實都上面這個不是主因，是因為我常常手滑就把 Node.js 移除了，想說又沒怎麼在寫 node.js 然後 npm module 也順手清乾淨 XDDD）</p>
-<h2 id="到-Github-產生-Personal-Access-Tokens"><a href="#到-Github-產生-Personal-Access-Tokens" class="headerlink" title="到 Github 產生 Personal Access Tokens"></a>到 Github 產生 Personal Access Tokens</h2><p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限就 <code>repo</code> all 跟 <code>user:email</code> 就好，然後 generate。</p>
+<p>直到某天開始，吃飽沒事就重灌、換系統，身為一個XXX，一個月重灌個幾次也很正常沒什麼嘛 (ﾟ3ﾟ)～♪</p>
+<p>p.s. 其實都上面這個不是主因，是因為我常常手滑就把 Node.js 移除了，想說又沒怎麼在寫 node.js 然後 npm module 也順手清乾淨 XDDD<br>p.s. 然後曾經有次忘了備份，文章 source markdown 遺失了幾篇… =&gt; 論遠端版控倉儲的必要性</p>
+<h2 id="新時代的作法"><a href="#新時代的作法" class="headerlink" title="新時代的作法"></a>新時代的作法</h2><p>兩個分支： 靜態頁面 (master) + 原始檔 (raw)，每次原始檔一有變更就透過 Travis <strong>自動</strong> 從 <code>raw</code> 產生靜態檔後直接提交變更至 <code>master</code>。</p>
+<p>原本的靜態檔 在 master，變成兩個分支是怎樣的狀況？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout -b raw</div><div class="line">git add --all</div><div class="line">gti commit -m <span class="string">"Push all my blog sources onto the cloud!"</span></div><div class="line">git push origin raw</div></pre></td></tr></table></figure>
+<p>就是再推一個完全不相干的 branch 上去啦哈哈哈 （此處 <code>git v1.9</code> 之前的似乎要加參數才能讓　unrelated braches 共存）<br>這麼胡來的手法真的沒問題嗎？<a href="http://magicse7en.github.io/2016/03/27/travis-ci-auto-deploy-hexo-github/#%E9%85%8D%E7%BD%AE-travis-yml" target="_blank" rel="external">有人</a>這麼做，那權且試試吧！</p>
+<img src="/2016/hexo-deploy-through-travisci/branches.png" alt="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ" title="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ">
+<h3 id="先到-Github-產生-Personal-Access-Tokens"><a href="#先到-Github-產生-Personal-Access-Tokens" class="headerlink" title="先到 Github 產生 Personal Access Tokens"></a>先到 Github 產生 Personal Access Tokens</h3><p>因為 push 須要有使用者權限，而又不想將完整的 credential 交給第三方使用；所以利用簡易授權 token 的方式來限定使用範圍，就好像身分證影本會加註說限XX使用一樣（哈這樣比喻對嗎？）</p>
+<p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限就 <code>repo</code> all 跟 <code>user:email</code> 就好，然後 generate。</p>
 <ul>
 <li><code>repo</code> scope 也可能只須第二項 <code>reepo_deployment</code>，並未進一步測試。</li>
+<li>這個 <code>token</code> 請好好保存，不要隨便公開；萬一掉了可以重新產生 (regenerate)。</li>
 </ul>
 <img src="/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token">
-<h2 id="Travis-CI-settings-for-project"><a href="#Travis-CI-settings-for-project" class="headerlink" title="Travis CI settings for project"></a>Travis CI settings for project</h2><p>到該 repository 設定底下，把剛剛產生的 token 新增進 Travis 環境變數，在後面的設定中會用到這個環境變數執行 <code>git push</code> 到 Github 完成發布。</p>
+<h3 id="Travis-CI-console-設定"><a href="#Travis-CI-console-設定" class="headerlink" title="Travis CI console 設定"></a>Travis CI console 設定</h3><p>剛剛申請的 token 是為了給 Travis 在最後階段發布時有 push 到 <code>master</code> 的權限，而且又不想讓 token 外洩所以利用 travis 環境變數設定的方式將資訊透漏給 travis 執行中的實體。</p>
+<ul>
+<li>到相應的 repository <code>settings</code> 底下，把剛剛產生的 token 新增進 Travis 環境變數，這邊的環境變數我取名為 <code>DEPLOY_TOKEN</code>。</li>
+</ul>
 <img src="/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
-<h2 id="Your-travis-yml-config"><a href="#Your-travis-yml-config" class="headerlink" title="Your .travis.yml config"></a>Your .travis.yml config</h2><p>附上我的 <code>.travis.yml</code> 做為參考</p>
+<h3 id="Travis-CI-執行設定：Your-travis-yml-config"><a href="#Travis-CI-執行設定：Your-travis-yml-config" class="headerlink" title="Travis CI 執行設定：Your .travis.yml config"></a>Travis CI 執行設定：Your .travis.yml config</h3><p>附上我的 <code>.travis.yml</code> 做為參考，整個建構流程分三步：取得歷史（fetch old commits history），產生檔案（<code>hexo</code> generate static files），發布結果（<code>git push</code> changes of static files to <code>master</code>）</p>
+<p><strong>必須要先確定 hexo 相關相依都有紀錄在 package.json</strong>，sample: <a href="https://github.com/leVirve/leVirve.github.io/blob/raw/package.json" target="_blank" rel="external">package.json</a></p>
 <ul>
 <li><p><code>before_script</code>: 在所有建置動作之前，先把 <code>master</code> 分支 (也就是最後 blog 靜態頁面) clone 到 <code>./public</code> 資料夾 (<code>hexo generate</code> 會預設產生結果到這裡)。目的是為了<strong>保留之前的 <code>commits</code> 紀錄</strong>，讓本次的新結果作為最新 <code>commit</code> 提交出去。</p>
 </li>
 <li><p><code>script</code>: 雖然是透過 npm run build，不過實際上就是 <code>hexo generate</code> (可以參閱我的 <a href="https://github.com/leVirve/leVirve.github.io/blob/raw/package.json#L9" target="_blank" rel="external">package.json</a> 設定)</p>
 </li>
-<li><p><code>after_success</code>: 在成功之後，準備將本次改變 (changes) 提交出去 (commit)。build 完的成果在 <code>./public</code>，然後照著一般 <code>git</code> 提交方法操作，最後透過 <code>DEPLOY_TOKEN</code> (從 Github 產生的 personal access token，並加入 travis 環境變數) <code>git push</code> 到 <code>master</code> 分支上。 完工 (ゝ∀･)b！</p>
+<li><p><code>after_success</code>: 在成功之後，準備將本次改變 (changes) 提交出去 (commit)。build 完的成果在 <code>./public</code>，然後照著一般 <code>git</code> 提交方法操作，最後透過 <code>DEPLOY_TOKEN</code> (從 Github 產生的 personal access token，並加入 travis 環境變數) <code>git push</code> 到 <code>master</code> 分支上。</p>
+</li>
+<li><p>完工 (ゝ∀･)b！ 記得加上 Line#26 確保 travis build 只 run 有原始碼這個 branch 喔～</p>
 </li>
 </ul>
 <figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> node_modules</div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> git clone --branch master https://github.com/leVirve/leVirve.github.io public</div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> npm run build</div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> cd public</div><div class="line"><span class="bullet">  -</span> git config user.name <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> git config user.email <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> git add --all .</div><div class="line"><span class="bullet">  -</span> git commit -m <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> git push https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master</div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> raw</div></pre></td></tr></table></figure>
-<h2 id="Continuous-delivery-持續交付-d-d＇∀＇"><a href="#Continuous-delivery-持續交付-d-d＇∀＇" class="headerlink" title="Continuous delivery 持續交付 d(d＇∀＇)"></a>Continuous delivery 持續交付 d(d＇∀＇)</h2><p>所以現在只要寫了一篇文章，然後把內容 commit 到 <code>raw</code> branch 就會自動透過 travis 建置併發布到 <code>master</code> 分支上 (也就是 xxxxx.github.io 顯示的靜態頁面)。</p>
-<p>這有比剛剛那兩行 hexo 指令方便嗎？？？<br>.<br>.<br>.<br>.<br>.<br>並沒有 XDDD 若單比較指令長度，git commit 一次就要打一大堆字</p>
-<p>但是好處是：</p>
+<h3 id="Continuous-delivery-持續交付-d-d＇∀＇"><a href="#Continuous-delivery-持續交付-d-d＇∀＇" class="headerlink" title="Continuous delivery 持續交付 d(d＇∀＇)"></a>Continuous delivery 持續交付 d(d＇∀＇)</h3><p>所以現在只要寫了一篇文章，然後把內容 commit 到 <code>raw</code> branch 就會自動透過 travis 建置並發布到 <code>master</code> 分支上（也就是 xxxxx.github.io 顯示的靜態頁面）。</p>
+<p>這有比剛剛那兩行 hexo 指令方便嗎？？？<br>.<br>.<br>.<br>.<br>.<br><strong>並沒有</strong> XDDD 若單比較指令長度，git commit 一次就要打一大堆字</p>
+<p>但是好處（side effects）是：</p>
 <ul>
 <li><p>不用 <del>怕我手滑</del> 安裝 node.js 和 <code>hexo</code> 以及他的相依 modules 好夥伴</p>
 <ul>
 <li>到哪都能寫，只要我能下 <code>git</code> commands，誰都別想攔我！</li>
 <li>就算沒有 <code>git</code> commands，還能直接開 Github 網頁登入之後新增檔案到 <code>raw</code> branch，網頁直接 commit！</li>
-<li>用手機登入 Github 網頁發文也 OK 唷！</li>
+<li>用手機或平板登入 Github 網頁發個文也是 OK 唷！</li>
 </ul>
 </li>
-<li><p>跟上潮流</p>
+<li><p>跟上潮流，CI / CD 就是潮</p>
 <ul>
 <li>既然有自動化工具，而且 BOT 不會忘記指令不會打錯字，幹嘛繼續當模仿工具做事的人？</li>
 <li>做個堂堂正正使用工具的好青年 (`・ω・´)</li>
@@ -148,16 +159,18 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
 </li>
 </ul>
 <p><strong>我就只是放假無聊，找個習題做做 練習個 travis 自動集成、自動交付也是不錯的 ξ( ✿＞◡❛)</strong></p>
+<h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions (?)"></a>Contributions (?)</h3><p>底下附了兩篇在設定時所參考的文章，不過我認為本篇使用了 brand new method (笑) 以及<strong>更簡單更少</strong>的設定完成目標！<br>不過或許要考慮在 Travis 使用 <a href="https://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables" target="_blank" rel="external">Encrypted-Variables</a> 來確保環境變數更安全 (っ・Д・)っ</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/" target="_blank" rel="external">使用 Travis CI 自动更新 GitHub Pages</a><br><a href="http://magicse7en.github.io/2016/03/27/travis-ci-auto-deploy-hexo-github/" target="_blank" rel="external">使用Travis CI自动构建hexo博客</a><br><a href="https://github.com/tommy351/tommy351.github.io/blob/source/.travis.yml" target="_blank" rel="external">Hexo 作者的 .travis.yml</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cirxheunk0008o1famfl552ps" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cirxn5wbv0008nyemb9tjjwfl" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/hexo-deploy-through-travisci/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hello/">Hello</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Travis/">Travis</a></li></ul>
 
     </footer>
   </div>
@@ -200,7 +213,7 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
     </div>
   </div>
 
@@ -210,7 +223,7 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hello/" style="font-size: 15px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/開箱文/" style="font-size: 15px;">開箱文</a>
+      <a href="/tags/Hello/" style="font-size: 10px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/Travis/" style="font-size: 10px;">Travis</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/開箱文/" style="font-size: 10px;">開箱文</a>
     </div>
   </div>
 
@@ -232,7 +245,7 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
       <ul>
         
           <li>
-            <a href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 靜態頁面</a>
+            <a href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 到 Github pages</a>
           </li>
         
           <li>
@@ -244,7 +257,7 @@ Github SSH Key: for git@github.com:leVirve/leVirve.githu">
           </li>
         
           <li>
-            <a href="/2016/爬蟲/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
+            <a href="/2016/what-is-crawler/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
           </li>
         
           <li>

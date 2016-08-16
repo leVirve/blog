@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 靜態頁面</a>
+      <a class="article-title" href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 到 Github pages</a>
     </h1>
   
 
@@ -89,6 +89,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
+<p>-<br>  <strong>認真原因：</strong> 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw <code>Markdown</code> documents），設定檔 （config） 保存在遠端，就失去部分使用 Github 等 remote repository 的意義了。<br>-</p>
+<h2 id="原始方法"><a href="#原始方法" class="headerlink" title="原始方法"></a>原始方法</h2><p>只有單一分支 (master)，並手動產生靜態檔然後透過 git 提交發布靜態檔上的變更。</p>
 <p>原本使用 <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a> 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：</p>
 <ul>
 <li><strong>Github SSH Key:</strong> for <code>git@github.com:leVirve/leVirve.github.io.git</code></li>
@@ -107,12 +109,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cirxheunk0008o1famfl552ps" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cirxn5wbv0008nyemb9tjjwfl" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/hexo-deploy-through-travisci/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hello/">Hello</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Travis/">Travis</a></li></ul>
 
     </footer>
   </div>
@@ -163,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/dcard-spider-python-package/" data-id="cirxheung0006o1falxy15vzl" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/dcard-spider-python-package/" data-id="cirxn5wbm0006nyemvy1lppnu" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/dcard-spider-python-package/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -208,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/Dccard-crawler/" data-id="cirxheun90004o1fa2c60btph" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/Dccard-crawler/" data-id="cirxn5wbh0004nyem4uzv5jqu" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2016/Dccard-crawler/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -222,9 +224,9 @@
 
 
   
-    <article id="post-爬蟲" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-what-is-crawler" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/爬蟲/" class="article-date">
+    <a href="/2016/what-is-crawler/" class="article-date">
   <time datetime="2016-02-09T22:52:00.000Z" itemprop="datePublished">2016-02-09</time>
 </a>
     
@@ -240,7 +242,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/爬蟲/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
+      <a class="article-title" href="/2016/what-is-crawler/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
     </h1>
   
 
@@ -248,18 +250,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://images2.static-bluray.com/reviews/3695_1.jpg" alt="The Social Network 場景 @www.blu-ray.com"><br>
+        <h1 id="知識科普"><a href="#知識科普" class="headerlink" title="知識科普"></a>知識科普</h1><p>先不多做解釋直接看看，Wiki 怎麼說: <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B">網路爬蟲</a></p>
+<blockquote>
+<p>是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。</p>
+</blockquote>
+<img src="/2016/what-is-crawler/demo.jpg" alt="The Social Network 場景 @www.blu-ray.com" title="The Social Network 場景 @www.blu-ray.com">
         
           <p class="article-more-link">
-            <a href="/2016/爬蟲/#more">Read More</a>
+            <a href="/2016/what-is-crawler/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/爬蟲/" data-id="cirxheuns000do1falr5idvca" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2016/what-is-crawler/" data-id="cirxn5wc3000dnyem8q502jdw" class="article-share-link">Share</a>
       
-        <a href="https://levirve.github.io/2016/爬蟲/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://levirve.github.io/2016/what-is-crawler/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬蟲/">爬蟲</a></li></ul>
@@ -302,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2015/hello-world/" data-id="cirxheuni0007o1fa9pbo8tsx" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2015/hello-world/" data-id="cirxn5wbt0007nyemt1ul7mlb" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2015/hello-world/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -347,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2015/python-fantasy/" data-id="cirxheunm000bo1fa5n01rx8h" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/2015/python-fantasy/" data-id="cirxn5wc0000bnyemtzqf7ma7" class="article-share-link">Share</a>
       
         <a href="https://levirve.github.io/2015/python-fantasy/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -381,7 +387,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a></li></ul>
     </div>
   </div>
 
@@ -391,7 +397,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hello/" style="font-size: 15px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/開箱文/" style="font-size: 15px;">開箱文</a>
+      <a href="/tags/Hello/" style="font-size: 10px;">Hello</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spider/" style="font-size: 15px;">Spider</a> <a href="/tags/Travis/" style="font-size: 10px;">Travis</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/開箱文/" style="font-size: 10px;">開箱文</a>
     </div>
   </div>
 
@@ -413,7 +419,7 @@
       <ul>
         
           <li>
-            <a href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 靜態頁面</a>
+            <a href="/2016/hexo-deploy-through-travisci/">使用 Travis CI 自動發布 hexo 到 Github pages</a>
           </li>
         
           <li>
@@ -425,7 +431,7 @@
           </li>
         
           <li>
-            <a href="/2016/爬蟲/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
+            <a href="/2016/what-is-crawler/">網路爬蟲 Crawler Tutorial - (1) 簡介</a>
           </li>
         
           <li>
