@@ -7,12 +7,14 @@ cache:
   directories:
     - node_modules
 
+before_script:
+  - git clone --branch master https://github.com/leVirve/leVirve.github.io public
+
 script:
   - npm run build
 
 after_success:
-  - git clone --branch master https://github.com/leVirve/leVirve.github.io .deploy_git
-  - cd .deploy_git
+  - cd public
   - git config user.name "leVirve@Travis" 
   - git config user.email "gae.m.project@gmail.com"
   - git add --all .
