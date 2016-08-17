@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://levirve.github.io/"/>
-  <updated>2016-08-16T16:01:29.793Z</updated>
+  <updated>2016-08-17T13:46:45.868Z</updated>
   <id>https://levirve.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://levirve.github.io/2016/hexo-deploy-through-travisci/"/>
     <id>https://levirve.github.io/2016/hexo-deploy-through-travisci/</id>
     <published>2016-08-16T11:06:47.000Z</published>
-    <updated>2016-08-16T16:01:29.793Z</updated>
+    <updated>2016-08-17T13:46:45.868Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
 <p>-<br>  <strong>認真原因：</strong> 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw <code>Markdown</code> documents），設定檔 （config） 保存在遠端，就失去部分使用 Github 等 remote repository 的意義了。<br>-</p>
@@ -40,13 +40,22 @@
 <p>p.s. 其實都上面這個不是主因，是因為我常常手滑就把 Node.js 移除了，想說又沒怎麼在寫 node.js 然後 npm module 也順手清乾淨 XDDD<br>p.s. 然後曾經有次忘了備份，文章 source markdown 遺失了幾篇… =&gt; 論遠端版控倉儲的必要性</p>
 <h2 id="新時代的作法"><a href="#新時代的作法" class="headerlink" title="新時代的作法"></a>新時代的作法</h2><p>兩個分支： 靜態頁面 (master) + 原始檔 (raw)，每次原始檔一有變更就透過 Travis <strong>自動</strong> 從 <code>raw</code> 產生靜態檔後直接提交變更至 <code>master</code>。</p>
 <p>原本的靜態檔 在 master，變成兩個分支是怎樣的狀況？</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout -b raw</div><div class="line">git add --all</div><div class="line">gti commit -m <span class="string">"Push all my blog sources onto the cloud!"</span></div><div class="line">git push origin raw</div></pre></td></tr></table></figure>
-<p>就是再推一個完全不相干的 branch 上去啦哈哈哈 （此處 <code>git v1.9</code> 之前的似乎要加參數才能讓　unrelated braches 共存）<br>這麼胡來的手法真的沒問題嗎？<a href="http://magicse7en.github.io/2016/03/27/travis-ci-auto-deploy-hexo-github/#%E9%85%8D%E7%BD%AE-travis-yml" target="_blank" rel="external">有人</a>這麼做，那權且試試吧！</p>
+<p>作法就是新增一個獨立的 branch <code>raw</code> 放原始的 resources</p>
+<ul>
+<li>其中正規做法是從原本已經包含 <code>master</code> 的 project 裡開始：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git checkout --orphan raw <span class="comment"># 新增一個 orphan branch</span></div><div class="line">$ git rm -rf .              <span class="comment"># 清空所有分支上的檔案</span></div><div class="line">$ git add --all             <span class="comment"># 加入新的要 track 的檔案 (hexo blog sources)</span></div><div class="line">$ gti commit -m <span class="string">"Push all my blog sources onto the cloud!"</span></div><div class="line">$ git push origin -u raw</div></pre></td></tr></table></figure>
+<p>(<code>--orphan</code> 這個參數要 <code>Git v1.7.2</code> 之後才有喔～)<br>Reference: <a href="https://ihower.tw/blog/archives/5691" target="_blank" rel="external">來源參考</a></p>
+<ul>
+<li>我的奇葩作法，直接進到 sources folder：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git checkout -b raw</div><div class="line">$ git add --all</div><div class="line">$ gti commit -m <span class="string">"Push all my blog sources onto the cloud!"</span></div><div class="line">$ git push origin raw     <span class="comment"># origin 指向原本的 git repo</span></div></pre></td></tr></table></figure>
+<p>總之兩個做法都是再推一個完全不相干的 branch 上去啦哈哈哈（讓 unrelated braches 共存），之後的推了幾個 <code>commits</code> 之後 git graph 會長這樣：</p>
 <img src="/2016/hexo-deploy-through-travisci/branches.png" alt="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ" title="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ">
 <h3 id="先到-Github-產生-Personal-Access-Tokens"><a href="#先到-Github-產生-Personal-Access-Tokens" class="headerlink" title="先到 Github 產生 Personal Access Tokens"></a>先到 Github 產生 Personal Access Tokens</h3><p>因為 push 須要有使用者權限，而又不想將完整的 credential 交給第三方使用；所以利用簡易授權 token 的方式來限定使用範圍，就好像身分證影本會加註說限XX使用一樣（哈這樣比喻對嗎？）</p>
 <p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限就 <code>repo</code> all 跟 <code>user:email</code> 就好，然後 generate。</p>
 <ul>
-<li><code>repo</code> scope 也可能只須第二項 <code>reepo_deployment</code>，並未進一步測試。</li>
+<li><code>repo</code> scope 也可能只須第三項 <code>public_repo</code>，並未進一步測試。</li>
 <li>這個 <code>token</code> 請好好保存，不要隨便公開；萬一掉了可以重新產生 (regenerate)。</li>
 </ul>
 <img src="/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token">
@@ -121,7 +130,7 @@
     <link href="https://levirve.github.io/2016/dcard-spider-python-package/"/>
     <id>https://levirve.github.io/2016/dcard-spider-python-package/</id>
     <published>2016-07-30T17:24:44.000Z</published>
-    <updated>2016-08-16T16:01:29.789Z</updated>
+    <updated>2016-08-17T13:46:45.868Z</updated>
     
     <content type="html"><![CDATA[<p>上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。<br>而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。</p>
 <p>那麼接下來的概念就是：</p>
@@ -290,7 +299,7 @@
     <link href="https://levirve.github.io/2016/Dccard-crawler/"/>
     <id>https://levirve.github.io/2016/Dccard-crawler/</id>
     <published>2016-07-12T21:55:44.000Z</published>
-    <updated>2016-08-16T16:01:29.789Z</updated>
+    <updated>2016-08-17T13:46:45.868Z</updated>
     
     <content type="html"><![CDATA[<p>原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。<br>這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。</p>
 <a id="more"></a>
@@ -366,7 +375,7 @@
     <link href="https://levirve.github.io/2016/what-is-crawler/"/>
     <id>https://levirve.github.io/2016/what-is-crawler/</id>
     <published>2016-02-09T22:52:00.000Z</published>
-    <updated>2016-08-16T16:01:29.793Z</updated>
+    <updated>2016-08-17T13:46:45.872Z</updated>
     
     <content type="html"><![CDATA[<h1 id="知識科普"><a href="#知識科普" class="headerlink" title="知識科普"></a>知識科普</h1><p>先不多做解釋直接看看，Wiki 怎麼說: <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B" target="_blank" rel="external">網路爬蟲</a></p>
 <blockquote>
@@ -410,7 +419,7 @@
     <link href="https://levirve.github.io/2015/hello-world/"/>
     <id>https://levirve.github.io/2015/hello-world/</id>
     <published>2015-12-07T11:06:47.000Z</published>
-    <updated>2016-08-16T16:01:29.793Z</updated>
+    <updated>2016-08-17T13:46:45.868Z</updated>
     
     <content type="html"><![CDATA[
 <p>N年前就說重返來寫寫部落格自娛娛人，現在終於準備開始啦(吧?)<br><a id="more"></a></p>
@@ -454,7 +463,7 @@
     <link href="https://levirve.github.io/2015/python-fantasy/"/>
     <id>https://levirve.github.io/2015/python-fantasy/</id>
     <published>2015-07-09T22:52:00.000Z</published>
-    <updated>2016-08-16T16:01:29.793Z</updated>
+    <updated>2016-08-17T13:46:45.872Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Charpter-1"><a href="#Charpter-1" class="headerlink" title="Charpter 1"></a>Charpter 1</h1><img src="/2015/python-fantasy/fantasy.jpg" alt="photo-manipulation-digital-art-421405" title="photo-manipulation-digital-art-421405">
 <a id="more"></a>
