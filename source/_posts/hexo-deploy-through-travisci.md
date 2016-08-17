@@ -34,8 +34,8 @@ deploy:
 然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！
 
 ```bash
-hexo generate  # 可縮寫成 => hexo g
-hexo deploy    # 可縮寫成 => hexo d
+$ hexo generate  # 可縮寫成 => hexo g
+$ hexo deploy    # 可縮寫成 => hexo d
 ```
 
 兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。
@@ -48,11 +48,10 @@ p.s. 然後曾經有次忘了備份，文章 source markdown 遺失了幾篇... 
 
 ## 新時代的作法
 
+順便達成手機發文不是夢！
+
 兩個分支： 靜態頁面 (master) + 原始檔 (raw)，每次原始檔一有變更就透過 Travis **自動** 從 `raw` 產生靜態檔後直接提交變更至 `master`。
-
-原本的靜態檔 在 master，變成兩個分支是怎樣的狀況？
-
-作法就是新增一個獨立的 branch `raw` 放原始的 resources
+原本的靜態檔 在 master，變成兩個分支是怎樣的狀況？作法就是新增一個獨立的 branch `raw` 放原始的 resources
 
 - 其中正規做法是從原本已經包含 `master` 的 project 裡開始：
 
@@ -64,7 +63,7 @@ $ gti commit -m "Push all my blog sources onto the cloud!"
 $ git push origin -u raw
 ```
 (`--orphan` 這個參數要 `Git v1.7.2` 之後才有喔～)
-Reference: [來源參考](https://ihower.tw/blog/archives/5691)
+Refer: [如何建立一個沒有 Parent 的獨立 Git branch](https://ihower.tw/blog/archives/5691)
 
 - 我的奇葩作法，直接進到 sources folder：
 
@@ -73,7 +72,7 @@ $ git init
 $ git checkout -b raw
 $ git add --all
 $ gti commit -m "Push all my blog sources onto the cloud!"
-$ git push origin raw     # origin 指向原本的 git repo
+$ git push origin raw     # origin 指向原本的 github repo
 ```
 
 總之兩個做法都是再推一個完全不相干的 branch 上去啦哈哈哈（讓 unrelated braches 共存），之後的推了幾個 `commits` 之後 git graph 會長這樣：
@@ -84,10 +83,10 @@ $ git push origin raw     # origin 指向原本的 git repo
 
 因為 push 須要有使用者權限，而又不想將完整的 credential 交給第三方使用；所以利用簡易授權 token 的方式來限定使用範圍，就好像身分證影本會加註說限XX使用一樣（哈這樣比喻對嗎？）
 
-到 Github `settings` 裡申請一個 `Personal Access Token`，scope 權限就 `repo` all 跟 `user:email` 就好，然後 generate。
-  * `repo` scope 也可能只須第三項 `public_repo `，並未進一步測試。
+到 Github `settings` 裡申請一個 `Personal Access Token`，scope 權限開 `public_repo` 跟 `user:email` 就好，然後 generate。
   * 這個 `token` 請好好保存，不要隨便公開；萬一掉了可以重新產生 (regenerate)。
 
+（2016.08.17 更新: repo 權限經測試只需 `public_repo`）
 {% asset_img github_token.png Personal Access Token %}
 
 ### Travis CI console 設定
@@ -158,22 +157,28 @@ branches:
 - 不用 ~~怕我手滑~~ 安裝 node.js 和 `hexo` 以及他的相依 modules 好夥伴
   - 到哪都能寫，只要我能下 `git` commands，誰都別想攔我！
   - 就算沒有 `git` commands，還能直接開 Github 網頁登入之後新增檔案到 `raw` branch，網頁直接 commit！
-  - 用手機或平板登入 Github 網頁發個文也是 OK 唷！
+  - 用**手機或平板**登入 Github 網頁發個文也是 OK 唷！
 
 - 跟上潮流，CI / CD 就是潮
-  - 既然有自動化工具，而且 BOT 不會忘記指令不會打錯字，幹嘛繼續當模仿工具做事的人？
-  - 做個堂堂正正使用工具的好青年 (`・ω・´)
+  - 既然有自動化工具，而且 BOT 不會忘記指令不會打錯字，幹嘛繼續當模仿工具做事的工具人？
+  - 做個堂堂正正使用工具的好人（簡稱工具人？！） (`・ω・´)
 
-**我就只是放假無聊，找個習題做做 練習個 travis 自動集成、自動交付也是不錯的 ξ( ✿＞◡❛)**
+**就是放假無聊找個題目做做 練個 travis 自動整合、自動交付也是不錯的 ξ( ✿＞◡❛)**
 
 
-### Contributions (?)
+### 後記
 
-底下附了兩篇在設定時所參考的文章，不過我認為本篇使用了 brand new method (笑) 以及**更簡單更少**的設定完成目標！
-不過或許要考慮在 Travis 使用 [Encrypted-Variables](https://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables) 來確保環境變數更安全 (っ・Д・)っ
+底下附了兩篇在設定時所參考的文章，不過我認為本篇使用了 brand new method (笑) 以及**更簡單更少**的設定完成目標！（本句純屬玩笑）
+
+在完成這篇流程之後發現方法可能存在一些可利用的瑕疵，之後會繼續探討的加強點：
+- 或許要考慮在 Travis 使用 [Encrypted-Variables](https://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables) 來確保環境變數更安全 (っ・Д・)っ
+- `Travis CI` dashboard 裡的 `Build pull requests` 或許要關掉 (turn off)，避免有心人發 PR 直接 echo 未加密的 token
+- Personal Access Token 目前 GitHub 沒有為個別的 repo 提供獨立 token 的方法，也就是這個 token 是全部 repo 適用…（再次提醒請務必保證 token 的隱密性）
+- `Personal Access Token` 的替代方案就是個別 repo 底下的 `Deploy Key`，作法可以參閱參考資料或者 [Hexo 作者的 solution](https://zespia.tw/blog/2015/01/21/continuous-deployment-to-github-with-travis/)
 
 #### 參考資料
 
 [使用 Travis CI 自动更新 GitHub Pages](http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/)
 [使用Travis CI自动构建hexo博客](http://magicse7en.github.io/2016/03/27/travis-ci-auto-deploy-hexo-github/)
 [Hexo 作者的 .travis.yml](https://github.com/tommy351/tommy351.github.io/blob/source/.travis.yml)
+[Automatically Update Github Pages with Travis](https://github.com/steveklabnik/automatically_update_github_pages_with_travis_example)
