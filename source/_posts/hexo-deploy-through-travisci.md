@@ -52,15 +52,31 @@ p.s. 然後曾經有次忘了備份，文章 source markdown 遺失了幾篇... 
 
 原本的靜態檔 在 master，變成兩個分支是怎樣的狀況？
 
+作法就是新增一個獨立的 branch `raw` 放原始的 resources
+
+- 其中正規做法是從原本已經包含 `master` 的 project 裡開始：
+
 ```bash
-git checkout -b raw
-git add --all
-gti commit -m "Push all my blog sources onto the cloud!"
-git push origin raw
+$ git checkout --orphan raw # 新增一個 orphan branch
+$ git rm -rf .              # 清空所有分支上的檔案
+$ git add --all             # 加入新的要 track 的檔案 (hexo blog sources)
+$ gti commit -m "Push all my blog sources onto the cloud!"
+$ git push origin -u raw
+```
+(`--orphan` 這個參數要 `Git v1.7.2` 之後才有喔～)
+Reference: [來源參考](https://ihower.tw/blog/archives/5691)
+
+- 我的奇葩作法，直接進到 sources folder：
+
+```bash
+$ git init
+$ git checkout -b raw
+$ git add --all
+$ gti commit -m "Push all my blog sources onto the cloud!"
+$ git push origin raw     # origin 指向原本的 git repo
 ```
 
-就是再推一個完全不相干的 branch 上去啦哈哈哈 （此處 `git v1.9` 之前的似乎要加參數才能讓　unrelated braches 共存）
-這麼胡來的手法真的沒問題嗎？[有人](http://magicse7en.github.io/2016/03/27/travis-ci-auto-deploy-hexo-github/#%E9%85%8D%E7%BD%AE-travis-yml)這麼做，那權且試試吧！
+總之兩個做法都是再推一個完全不相干的 branch 上去啦哈哈哈（讓 unrelated braches 共存），之後的推了幾個 `commits` 之後 git graph 會長這樣：
 
 {% asset_img branches.png 嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ %}
 
@@ -69,7 +85,7 @@ git push origin raw
 因為 push 須要有使用者權限，而又不想將完整的 credential 交給第三方使用；所以利用簡易授權 token 的方式來限定使用範圍，就好像身分證影本會加註說限XX使用一樣（哈這樣比喻對嗎？）
 
 到 Github `settings` 裡申請一個 `Personal Access Token`，scope 權限就 `repo` all 跟 `user:email` 就好，然後 generate。
-  * `repo` scope 也可能只須第二項 `reepo_deployment`，並未進一步測試。
+  * `repo` scope 也可能只須第三項 `public_repo `，並未進一步測試。
   * 這個 `token` 請好好保存，不要隨便公開；萬一掉了可以重新產生 (regenerate)。
 
 {% asset_img github_token.png Personal Access Token %}
