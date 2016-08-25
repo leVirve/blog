@@ -15,8 +15,8 @@ tags: [C++, Windows, Bash, VSCode]
 <!--more-->
 
 ## 系統環境
-要有 Windows 10 build 14393（夏季周年大更新）然後開啟 [Windows Subsystem for Linux](https://msdn.microsoft.com/zh-tw/commandline/wsl/install_guide) (WSL)，也就是獲得傳說中的 `Bash on WIndows` ξ( ✿＞◡❛)
-不過一直是都用 Windows 10 Insider Preview (Fast-Ring) ，在幾個月前微軟開發者大會 Build 2016 之後的更新就有這功能囉～不過現在才發現搭配微軟自家的 [VSCode](https://www.visualstudio.com/en-us/products/code-vs.aspx) 一起使用更是妙不可言！
+要有 Windows 10 build 14393（夏季周年大更新）然後開啟 [Windows Subsystem for Linux](https://msdn.microsoft.com/zh-tw/commandline/wsl/install_guide) (WSL)，也就是獲得傳說中的 `Bash on Windows` ξ( ✿＞◡❛)
+不過一直都是用 Windows 10 Insider Preview (Fast-Ring) ，在幾個月前微軟開發者大會 Build 2016 之後的更新就有這功能囉～不過現在才發現搭配微軟自家的 [VSCode](https://www.visualstudio.com/en-us/products/code-vs.aspx) 一起使用更是妙不可言！
 
 - 小結：討厭 Windows 10 的請右上關閉分頁 σ`∀´)σ ，有其他作法不過不是本篇內容 有機會再介紹～
 - p.s. Windows 開發者們要團結，說好不內鬨的 (((ﾟДﾟ;)))
