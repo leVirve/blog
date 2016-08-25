@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://levirve.github.io/"/>
-  <updated>2016-08-21T10:32:20.341Z</updated>
+  <updated>2016-08-25T13:03:19.765Z</updated>
   <id>https://levirve.github.io/</id>
   
   <author>
@@ -16,11 +16,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>就是要用 VSCode 在 Windows 寫 C++ (on Bash)</title>
+    <link href="https://levirve.github.io/2016/write-c-on-windows-bash/"/>
+    <id>https://levirve.github.io/2016/write-c-on-windows-bash/</id>
+    <published>2016-08-25T21:00:48.000Z</published>
+    <updated>2016-08-25T13:03:19.765Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>常言道：人生苦短，我用 Linux！<br><strong>亦有言：人生苦短，我買 Mac 啦！</strong></p>
+</blockquote>
+<img src="/2016/write-c-on-windows-bash/i_use_python.jpg" alt="(原句) Bruce Eckel: Life is short, you need Python." title="(原句) Bruce Eckel: Life is short, you need Python.">
+<p>但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 <code>Bash</code> 的系統都可用 (･ω´･ ) ）<br>（真相：在用 Windows 玩耍的同時，能 <del>順便</del> 寫個程式不是很方便嗎）</p>
+<a id="more"></a>
+<h2 id="系統環境"><a href="#系統環境" class="headerlink" title="系統環境"></a>系統環境</h2><p>要有 Windows 10 build 14393（夏季周年大更新）然後開啟 <a href="https://msdn.microsoft.com/zh-tw/commandline/wsl/install_guide" target="_blank" rel="external">Windows Subsystem for Linux</a> (WSL)，也就是獲得傳說中的 <code>Bash on WIndows</code> ξ( ✿＞◡❛)<br>不過一直是都用 Windows 10 Insider Preview (Fast-Ring) ，在幾個月前微軟開發者大會 Build 2016 之後的更新就有這功能囉～不過現在才發現搭配微軟自家的 <a href="https://www.visualstudio.com/en-us/products/code-vs.aspx" target="_blank" rel="external">VSCode</a> 一起使用更是妙不可言！</p>
+<ul>
+<li>小結：討厭 Windows 10 的請右上關閉分頁 σ`∀´)σ ，有其他作法不過不是本篇內容 有機會再介紹～</li>
+<li>p.s. Windows 開發者們要團結，說好不內鬨的 (((ﾟДﾟ;)))</li>
+</ul>
+<h2 id="VSCode-設定"><a href="#VSCode-設定" class="headerlink" title="VSCode 設定"></a>VSCode 設定</h2><p>新增 <code>task.json</code> 來描述任務，按下 <code>Ctrl+Shift+P</code> 輸入 <code>task</code> 跳出提示之後選擇 <code>Configure Task Runner</code></p>
+<img src="/2016/write-c-on-windows-bash/new_task_full.png" alt="Configure Task Runner in VSCode Insider" title="Configure Task Runner in VSCode Insider">
+<p><code>task.json</code> 裡面依這樣設定</p>
+<ul>
+<li>其實以下設定兼容 <code>Windows</code>、<code>Linux</code>、<code>macOS</code> 三平台，分別設定使用各平台的 bash</li>
+<li>然後透過 <code>bash</code> 去執行定義的 tasks<ul>
+<li>直接寫編譯執行命令（with <code>gcc</code> or <code>clang</code>）</li>
+<li>用 <code>make</code> 來執行 <code>Makefile</code> 定義的行為</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</div><div class="line">    <span class="attr">"isShellCommand"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"windows"</span>: &#123;</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"c:/Windows/sysnative/bash.exe"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"linux"</span>: &#123;</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"sh"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"osx"</span>: &#123;</div><div class="line">        <span class="attr">"command"</span>: <span class="string">"sh"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"args"</span>: [<span class="string">"-c"</span>],</div><div class="line">    <span class="attr">"showOutput"</span>: <span class="string">"always"</span>,</div><div class="line">    <span class="attr">"suppressTaskName"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"tasks"</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"taskName"</span>: <span class="string">"clang"</span>,</div><div class="line">            <span class="attr">"isBuildCommand"</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">"args"</span>: [<span class="string">"clang++ $&#123;relativeFile&#125; -o $&#123;relativeFile&#125;.o &amp;&amp; ./$&#123;relativeFile&#125;.o"</span>]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"taskName"</span>: <span class="string">"gcc"</span>,</div><div class="line">            <span class="attr">"args"</span>: [<span class="string">"g++ $&#123;relativeFile&#125; -o $&#123;relativeFile&#125;.o &amp;&amp; ./$&#123;relativeFile&#125;.o"</span>]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"taskName"</span>: <span class="string">"make"</span>,</div><div class="line">            <span class="attr">"args"</span>: [<span class="string">"make"</span>]</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Task <code>clang</code> 那項多定義了一個 <code>isBuildCommand: true</code>，表示該任務可以透過按住 <code>Ctrl+Shift+B</code> 執行唷！</p>
+<p>結果大概長這樣，用 <code>clang</code> 編譯執行了個 <code>pthread</code> 範例程式</p>
+</li>
+</ul>
+<img src="/2016/write-c-on-windows-bash/running_task.png" alt="Compile and run on VSCode task" title="Compile and run on VSCode task">
+<p>以上就是 <strong>Windows 一條龍寫 C++</strong> 的方法，完全原生！不用依靠 <code>Cygwin</code>, <code>MSYS</code> 等第三方工具 (ﾉ&gt;ω&lt;)ﾉ</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;常言道：人生苦短，我用 Linux！&lt;br&gt;&lt;strong&gt;亦有言：人生苦短，我買 Mac 啦！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&quot;/2016/write-c-on-windows-bash/i_use_python.jpg&quot; alt=&quot;(原句) Bruce Eckel: Life is short, you need Python.&quot; title=&quot;(原句) Bruce Eckel: Life is short, you need Python.&quot;&gt;
+&lt;p&gt;但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 &lt;code&gt;Bash&lt;/code&gt; 的系統都可用 (･ω´･ ) ）&lt;br&gt;（真相：在用 Windows 玩耍的同時，能 &lt;del&gt;順便&lt;/del&gt; 寫個程式不是很方便嗎）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://levirve.github.io/tags/C/"/>
+    
+      <category term="Windows" scheme="https://levirve.github.io/tags/Windows/"/>
+    
+      <category term="Bash" scheme="https://levirve.github.io/tags/Bash/"/>
+    
+      <category term="VSCode" scheme="https://levirve.github.io/tags/VSCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用 Travis CI 自動發布 hexo 到 Github pages</title>
     <link href="https://levirve.github.io/2016/hexo-deploy-through-travisci/"/>
     <id>https://levirve.github.io/2016/hexo-deploy-through-travisci/</id>
     <published>2016-08-16T11:06:47.000Z</published>
-    <updated>2016-08-21T10:32:20.341Z</updated>
+    <updated>2016-08-25T13:03:19.757Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
 <p>-<br>  <strong>認真原因：</strong> 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw <code>Markdown</code> documents），設定檔 （config） 保存在遠端，就失去部分使用 Github 等 remote repository 的意義了。<br>-</p>
@@ -135,7 +195,7 @@
     <link href="https://levirve.github.io/2016/dcard-spider-python-package/"/>
     <id>https://levirve.github.io/2016/dcard-spider-python-package/</id>
     <published>2016-07-30T17:24:44.000Z</published>
-    <updated>2016-08-21T10:32:20.337Z</updated>
+    <updated>2016-08-25T13:03:19.753Z</updated>
     
     <content type="html"><![CDATA[<p>上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。<br>而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。</p>
 <p>那麼接下來的概念就是：</p>
@@ -304,7 +364,7 @@
     <link href="https://levirve.github.io/2016/Dccard-crawler/"/>
     <id>https://levirve.github.io/2016/Dccard-crawler/</id>
     <published>2016-07-12T21:55:44.000Z</published>
-    <updated>2016-08-21T10:32:20.337Z</updated>
+    <updated>2016-08-25T13:03:19.753Z</updated>
     
     <content type="html"><![CDATA[<p>原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。<br>這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。</p>
 <a id="more"></a>
@@ -380,7 +440,7 @@
     <link href="https://levirve.github.io/2016/what-is-crawler/"/>
     <id>https://levirve.github.io/2016/what-is-crawler/</id>
     <published>2016-02-09T22:52:00.000Z</published>
-    <updated>2016-08-21T10:32:20.345Z</updated>
+    <updated>2016-08-25T13:03:19.761Z</updated>
     
     <content type="html"><![CDATA[<h1 id="知識科普"><a href="#知識科普" class="headerlink" title="知識科普"></a>知識科普</h1><p>先不多做解釋直接看看，Wiki 怎麼說: <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B" target="_blank" rel="external">網路爬蟲</a></p>
 <blockquote>
@@ -424,7 +484,7 @@
     <link href="https://levirve.github.io/2015/hello-world/"/>
     <id>https://levirve.github.io/2015/hello-world/</id>
     <published>2015-12-07T11:06:47.000Z</published>
-    <updated>2016-08-21T10:32:20.341Z</updated>
+    <updated>2016-08-25T13:03:19.757Z</updated>
     
     <content type="html"><![CDATA[
 <p>N年前就說重返來寫寫部落格自娛娛人，現在終於準備開始啦(吧?)<br><a id="more"></a></p>
@@ -468,7 +528,7 @@
     <link href="https://levirve.github.io/2015/python-fantasy/"/>
     <id>https://levirve.github.io/2015/python-fantasy/</id>
     <published>2015-07-09T22:52:00.000Z</published>
-    <updated>2016-08-21T10:32:20.341Z</updated>
+    <updated>2016-08-25T13:03:19.761Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Charpter-1"><a href="#Charpter-1" class="headerlink" title="Charpter 1"></a>Charpter 1</h1><img src="/2015/python-fantasy/fantasy.jpg" alt="photo-manipulation-digital-art-421405" title="photo-manipulation-digital-art-421405">
 <a id="more"></a>
