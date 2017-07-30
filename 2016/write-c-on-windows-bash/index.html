@@ -5,29 +5,22 @@
   
   <title>就是要用 VSCode 在 Windows 寫 C++ (on Bash) | Salas&#39;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="常言道：人生苦短，我用 Linux！亦有言：人生苦短，我買 Mac 啦！
-
-
-但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 Bash 的系統都可用 (･ω´･ ) ）（真相：在用 Windows 玩耍的同時，能 順便 寫個程式不是很方便嗎）">
+  <meta name="description" content="常言道：人生苦短，我用 Linux！亦有言：人生苦短，我買 Mac 啦！   但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 Bash 的系統都可用 (･ω´･ ) ）（真相：在用 Windows 玩耍的同時，能 順便 寫個程式不是很方便嗎）">
+<meta name="keywords" content="C++,Windows,Bash,VSCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="就是要用 VSCode 在 Windows 寫 C++ (on Bash)">
-<meta property="og:url" content="https://levirve.github.io/2016/write-c-on-windows-bash/index.html">
-<meta property="og:site_name" content="Salas'">
-<meta property="og:description" content="常言道：人生苦短，我用 Linux！亦有言：人生苦短，我買 Mac 啦！
-
-
-但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 Bash 的系統都可用 (･ω´･ ) ）（真相：在用 Windows 玩耍的同時，能 順便 寫個程式不是很方便嗎）">
-<meta property="og:image" content="https://levirve.github.io/2016/write-c-on-windows-bash/i_use_python.jpg">
-<meta property="og:image" content="https://levirve.github.io/2016/write-c-on-windows-bash/new_task_full.png">
-<meta property="og:image" content="https://levirve.github.io/2016/write-c-on-windows-bash/running_task.png">
-<meta property="og:updated_time" content="2016-08-25T13:14:41.207Z">
+<meta property="og:url" content="https://levirve.github.io/blog/2016/write-c-on-windows-bash/index.html">
+<meta property="og:site_name" content="Salas&#39;">
+<meta property="og:description" content="常言道：人生苦短，我用 Linux！亦有言：人生苦短，我買 Mac 啦！   但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 Bash 的系統都可用 (･ω´･ ) ）（真相：在用 Windows 玩耍的同時，能 順便 寫個程式不是很方便嗎）">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/write-c-on-windows-bash/i_use_python.jpg">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/write-c-on-windows-bash/new_task_full.png">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/write-c-on-windows-bash/running_task.png">
+<meta property="og:updated_time" content="2017-07-30T14:51:16.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="就是要用 VSCode 在 Windows 寫 C++ (on Bash)">
-<meta name="twitter:description" content="常言道：人生苦短，我用 Linux！亦有言：人生苦短，我買 Mac 啦！
-
-
-但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 Bash 的系統都可用 (･ω´･ ) ）（真相：在用 Windows 玩耍的同時，能 順便 寫個程式不是很方便嗎）">
-<meta name="twitter:image" content="https://levirve.github.io/2016/write-c-on-windows-bash/i_use_python.jpg">
+<meta name="twitter:description" content="常言道：人生苦短，我用 Linux！亦有言：人生苦短，我買 Mac 啦！   但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 Bash 的系統都可用 (･ω´･ ) ）（真相：在用 Windows 玩耍的同時，能 順便 寫個程式不是很方便嗎）">
+<meta name="twitter:image" content="https://levirve.github.io/blog/2016/write-c-on-windows-bash/i_use_python.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
   
@@ -37,7 +30,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
 </head>
 
 <body>
@@ -48,11 +41,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Salas&#39;</a>
+        <a href="/blog/" id="logo">Salas&#39;</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Do it for your pride.</a>
+          <a href="/blog/" id="subtitle">Do it for your pride.</a>
         </h2>
       
     </div>
@@ -60,9 +53,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/blog/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
         
           <a class="main-nav-link" href="https://github.com/leVirve">GitHub</a>
         
@@ -74,7 +67,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -82,8 +75,8 @@
       <div class="outer">
         <section id="main"><article id="post-write-c-on-windows-bash" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/write-c-on-windows-bash/" class="article-date">
-  <time datetime="2016-08-25T21:00:48.000Z" itemprop="datePublished">2016-08-25</time>
+    <a href="/blog/2016/write-c-on-windows-bash/" class="article-date">
+  <time datetime="2016-08-25T13:00:48.000Z" itemprop="datePublished">2016-08-25</time>
 </a>
     
   </div>
@@ -105,7 +98,7 @@
         <blockquote>
 <p>常言道：人生苦短，我用 Linux！<br><strong>亦有言：人生苦短，我買 Mac 啦！</strong></p>
 </blockquote>
-<img src="/2016/write-c-on-windows-bash/i_use_python.jpg" alt="(原句) Bruce Eckel: Life is short, you need Python." title="(原句) Bruce Eckel: Life is short, you need Python.">
+<img src="/blog/2016/write-c-on-windows-bash/i_use_python.jpg" alt="(原句) Bruce Eckel: Life is short, you need Python." title="(原句) Bruce Eckel: Life is short, you need Python.">
 <p>但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 <code>Bash</code> 的系統都可用 (･ω´･ ) ）<br>（真相：在用 Windows 玩耍的同時，能 <del>順便</del> 寫個程式不是很方便嗎）</p>
 <a id="more"></a>
 <h2 id="系統環境"><a href="#系統環境" class="headerlink" title="系統環境"></a>系統環境</h2><p>要有 Windows 10 build 14393（夏季周年大更新）然後開啟 <a href="https://msdn.microsoft.com/zh-tw/commandline/wsl/install_guide" target="_blank" rel="external">Windows Subsystem for Linux</a> (WSL)，也就是獲得傳說中的 <code>Bash on Windows</code> ξ( ✿＞◡❛)<br>不過一直都是用 Windows 10 Insider Preview (Fast-Ring) ，在幾個月前微軟開發者大會 Build 2016 之後的更新就有這功能囉～不過現在才發現搭配微軟自家的 <a href="https://www.visualstudio.com/en-us/products/code-vs.aspx" target="_blank" rel="external">VSCode</a> 一起使用更是妙不可言！</p>
@@ -114,7 +107,7 @@
 <li>p.s. Windows 開發者們要團結，說好不內鬨的 (((ﾟДﾟ;)))</li>
 </ul>
 <h2 id="VSCode-設定"><a href="#VSCode-設定" class="headerlink" title="VSCode 設定"></a>VSCode 設定</h2><p>新增 <code>task.json</code> 來描述任務，按下 <code>Ctrl+Shift+P</code> 輸入 <code>task</code> 跳出提示之後選擇 <code>Configure Task Runner</code></p>
-<img src="/2016/write-c-on-windows-bash/new_task_full.png" alt="Configure Task Runner in VSCode Insider" title="Configure Task Runner in VSCode Insider">
+<img src="/blog/2016/write-c-on-windows-bash/new_task_full.png" alt="Configure Task Runner in VSCode Insider" title="Configure Task Runner in VSCode Insider">
 <p><code>task.json</code> 裡面依這樣設定</p>
 <ul>
 <li>其實以下設定兼容 <code>Windows</code>、<code>Linux</code>、<code>macOS</code> 三平台，分別設定使用各平台的 bash</li>
@@ -130,18 +123,18 @@
 <p>結果大概長這樣，用 <code>clang</code> 編譯執行了個 <code>pthread</code> 範例程式</p>
 </li>
 </ul>
-<img src="/2016/write-c-on-windows-bash/running_task.png" alt="Compile and run on VSCode task" title="Compile and run on VSCode task">
+<img src="/blog/2016/write-c-on-windows-bash/running_task.png" alt="Compile and run on VSCode task" title="Compile and run on VSCode task">
 <p>以上就是 <strong>Windows 一條龍寫 C++</strong> 的方法，完全原生！不用依靠 <code>Cygwin</code>, <code>MSYS</code> 等第三方工具 (ﾉ&gt;ω&lt;)ﾉ</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/write-c-on-windows-bash/" data-id="cisacq300000gn7e6wm2hkhl5" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/blog/2016/write-c-on-windows-bash/" data-id="cj5qvnc82000g14rp96ebv1d3" class="article-share-link">Share</a>
       
-        <a href="https://levirve.github.io/2016/write-c-on-windows-bash/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://levirve.github.io/blog/2016/write-c-on-windows-bash/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bash/">Bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Bash/">Bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/VSCode/">VSCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Windows/">Windows</a></li></ul>
 
     </footer>
   </div>
@@ -150,7 +143,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2016/hexo-deploy-through-travisci/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2016/hexo-deploy-through-travisci/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">使用 Travis CI 自動發布 hexo 到 Github pages</div>
     </a>
@@ -174,7 +167,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/VSCode/">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -184,7 +177,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -197,7 +190,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Salas (leVirve)<br>
+      &copy; 2017 Salas (leVirve)<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -205,9 +198,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
     <a href="https://github.com/leVirve" class="mobile-nav-link">GitHub</a>
   
@@ -216,7 +209,7 @@
 <script>
   var disqus_shortname = 'salasnote';
   
-  var disqus_url = 'https://levirve.github.io/2016/write-c-on-windows-bash/';
+  var disqus_url = 'https://levirve.github.io/blog/2016/write-c-on-windows-bash/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -231,11 +224,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/blog/js/script.js"></script>
 
 <!-- Google Analytics -->
 <script type="text/javascript">

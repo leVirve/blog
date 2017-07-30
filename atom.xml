@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Salas&#39;</title>
   <subtitle>Do it for your pride.</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="https://levirve.github.io/"/>
-  <updated>2016-08-25T13:14:41.207Z</updated>
-  <id>https://levirve.github.io/</id>
+  <link href="https://levirve.github.io/blog/"/>
+  <updated>2017-07-30T14:51:16.667Z</updated>
+  <id>https://levirve.github.io/blog/</id>
   
   <author>
     <name>Salas (leVirve)</name>
@@ -17,15 +17,15 @@
   
   <entry>
     <title>就是要用 VSCode 在 Windows 寫 C++ (on Bash)</title>
-    <link href="https://levirve.github.io/2016/write-c-on-windows-bash/"/>
-    <id>https://levirve.github.io/2016/write-c-on-windows-bash/</id>
-    <published>2016-08-25T21:00:48.000Z</published>
-    <updated>2016-08-25T13:14:41.207Z</updated>
+    <link href="https://levirve.github.io/blog/2016/write-c-on-windows-bash/"/>
+    <id>https://levirve.github.io/blog/2016/write-c-on-windows-bash/</id>
+    <published>2016-08-25T13:00:48.000Z</published>
+    <updated>2017-07-30T14:51:16.667Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>常言道：人生苦短，我用 Linux！<br><strong>亦有言：人生苦短，我買 Mac 啦！</strong></p>
 </blockquote>
-<img src="/2016/write-c-on-windows-bash/i_use_python.jpg" alt="(原句) Bruce Eckel: Life is short, you need Python." title="(原句) Bruce Eckel: Life is short, you need Python.">
+<img src="/blog/2016/write-c-on-windows-bash/i_use_python.jpg" alt="(原句) Bruce Eckel: Life is short, you need Python." title="(原句) Bruce Eckel: Life is short, you need Python.">
 <p>但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 <code>Bash</code> 的系統都可用 (･ω´･ ) ）<br>（真相：在用 Windows 玩耍的同時，能 <del>順便</del> 寫個程式不是很方便嗎）</p>
 <a id="more"></a>
 <h2 id="系統環境"><a href="#系統環境" class="headerlink" title="系統環境"></a>系統環境</h2><p>要有 Windows 10 build 14393（夏季周年大更新）然後開啟 <a href="https://msdn.microsoft.com/zh-tw/commandline/wsl/install_guide" target="_blank" rel="external">Windows Subsystem for Linux</a> (WSL)，也就是獲得傳說中的 <code>Bash on Windows</code> ξ( ✿＞◡❛)<br>不過一直都是用 Windows 10 Insider Preview (Fast-Ring) ，在幾個月前微軟開發者大會 Build 2016 之後的更新就有這功能囉～不過現在才發現搭配微軟自家的 <a href="https://www.visualstudio.com/en-us/products/code-vs.aspx" target="_blank" rel="external">VSCode</a> 一起使用更是妙不可言！</p>
@@ -34,7 +34,7 @@
 <li>p.s. Windows 開發者們要團結，說好不內鬨的 (((ﾟДﾟ;)))</li>
 </ul>
 <h2 id="VSCode-設定"><a href="#VSCode-設定" class="headerlink" title="VSCode 設定"></a>VSCode 設定</h2><p>新增 <code>task.json</code> 來描述任務，按下 <code>Ctrl+Shift+P</code> 輸入 <code>task</code> 跳出提示之後選擇 <code>Configure Task Runner</code></p>
-<img src="/2016/write-c-on-windows-bash/new_task_full.png" alt="Configure Task Runner in VSCode Insider" title="Configure Task Runner in VSCode Insider">
+<img src="/blog/2016/write-c-on-windows-bash/new_task_full.png" alt="Configure Task Runner in VSCode Insider" title="Configure Task Runner in VSCode Insider">
 <p><code>task.json</code> 裡面依這樣設定</p>
 <ul>
 <li>其實以下設定兼容 <code>Windows</code>、<code>Linux</code>、<code>macOS</code> 三平台，分別設定使用各平台的 bash</li>
@@ -50,7 +50,7 @@
 <p>結果大概長這樣，用 <code>clang</code> 編譯執行了個 <code>pthread</code> 範例程式</p>
 </li>
 </ul>
-<img src="/2016/write-c-on-windows-bash/running_task.png" alt="Compile and run on VSCode task" title="Compile and run on VSCode task">
+<img src="/blog/2016/write-c-on-windows-bash/running_task.png" alt="Compile and run on VSCode task" title="Compile and run on VSCode task">
 <p>以上就是 <strong>Windows 一條龍寫 C++</strong> 的方法，完全原生！不用依靠 <code>Cygwin</code>, <code>MSYS</code> 等第三方工具 (ﾉ&gt;ω&lt;)ﾉ</p>
 ]]></content>
     
@@ -59,28 +59,28 @@
       &lt;blockquote&gt;
 &lt;p&gt;常言道：人生苦短，我用 Linux！&lt;br&gt;&lt;strong&gt;亦有言：人生苦短，我買 Mac 啦！&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img src=&quot;/2016/write-c-on-windows-bash/i_use_python.jpg&quot; alt=&quot;(原句) Bruce Eckel: Life is short, you need Python.&quot; title=&quot;(原句) Bruce Eckel: Life is short, you need Python.&quot;&gt;
+&lt;img src=&quot;/blog/2016/write-c-on-windows-bash/i_use_python.jpg&quot; alt=&quot;(原句) Bruce Eckel: Life is short, you need Python.&quot; title=&quot;(原句) Bruce Eckel: Life is short, you need Python.&quot;&gt;
 &lt;p&gt;但我就是要在 Windows 寫程式啦！（其實以下介紹的方法，在有 &lt;code&gt;Bash&lt;/code&gt; 的系統都可用 (･ω´･ ) ）&lt;br&gt;（真相：在用 Windows 玩耍的同時，能 &lt;del&gt;順便&lt;/del&gt; 寫個程式不是很方便嗎）&lt;/p&gt;
     
     </summary>
     
     
-      <category term="C++" scheme="https://levirve.github.io/tags/C/"/>
+      <category term="C++" scheme="https://levirve.github.io/blog/tags/C/"/>
     
-      <category term="Windows" scheme="https://levirve.github.io/tags/Windows/"/>
+      <category term="Windows" scheme="https://levirve.github.io/blog/tags/Windows/"/>
     
-      <category term="Bash" scheme="https://levirve.github.io/tags/Bash/"/>
+      <category term="Bash" scheme="https://levirve.github.io/blog/tags/Bash/"/>
     
-      <category term="VSCode" scheme="https://levirve.github.io/tags/VSCode/"/>
+      <category term="VSCode" scheme="https://levirve.github.io/blog/tags/VSCode/"/>
     
   </entry>
   
   <entry>
     <title>使用 Travis CI 自動發布 hexo 到 Github pages</title>
-    <link href="https://levirve.github.io/2016/hexo-deploy-through-travisci/"/>
-    <id>https://levirve.github.io/2016/hexo-deploy-through-travisci/</id>
-    <published>2016-08-16T11:06:47.000Z</published>
-    <updated>2016-08-25T13:14:41.203Z</updated>
+    <link href="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/"/>
+    <id>https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/</id>
+    <published>2016-08-16T03:06:47.000Z</published>
+    <updated>2017-07-30T14:51:16.644Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌<strong>不夠懶人</strong>啊 XDD</p>
 <p>-<br>  <strong>認真原因：</strong> 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw <code>Markdown</code> documents），設定檔 （config） 保存在遠端，就失去部分使用 Github 等 remote repository 的意義了。<br>-</p>
@@ -91,7 +91,7 @@
 <li><strong>Personal Access Token:</strong> for <code>https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git</code></li>
 </ul>
 <p>這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> git@github.com:leVirve/leVirve.github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> push by hexo-deploy</div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:leVirve/leVirve.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div><div class="line"><span class="attr">  message:</span> <span class="string">push</span> <span class="string">by</span> <span class="string">hexo-deploy</span></div><div class="line"></div></pre></td></tr></table></figure>
 <p>然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  <span class="comment"># 可縮寫成 =&gt; hexo g</span></div><div class="line">$ hexo deploy    <span class="comment"># 可縮寫成 =&gt; hexo d</span></div></pre></td></tr></table></figure>
 <p>兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。</p>
@@ -110,18 +110,18 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git checkout -b raw</div><div class="line">$ git add --all</div><div class="line">$ gti commit -m <span class="string">"Push all my blog sources onto the cloud!"</span></div><div class="line">$ git push origin raw     <span class="comment"># origin 指向原本的 github repo</span></div></pre></td></tr></table></figure>
 <p>總之兩個做法都是再推一個完全不相干的 branch 上去啦哈哈哈（讓 unrelated braches 共存），之後的推了幾個 <code>commits</code> 之後 git graph 會長這樣：</p>
-<img src="/2016/hexo-deploy-through-travisci/branches.png" alt="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ" title="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ">
+<img src="/blog/2016/hexo-deploy-through-travisci/branches.png" alt="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ" title="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ">
 <h3 id="先到-Github-產生-Personal-Access-Tokens"><a href="#先到-Github-產生-Personal-Access-Tokens" class="headerlink" title="先到 Github 產生 Personal Access Tokens"></a>先到 Github 產生 Personal Access Tokens</h3><p>因為 push 須要有使用者權限，而又不想將完整的 credential 交給第三方使用；所以利用簡易授權 token 的方式來限定使用範圍，就好像身分證影本會加註說限XX使用一樣（哈這樣比喻對嗎？）</p>
 <p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限開 <code>public_repo</code> 跟 <code>user:email</code> 就好，然後 generate。</p>
 <ul>
 <li>這個 <code>token</code> 請好好保存，不要隨便公開；萬一掉了可以重新產生 (regenerate)。</li>
 </ul>
-<p>（2016.08.17 更新: repo 權限經測試只需 <code>public_repo</code>）<br><img src="/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token"></p>
+<p>（2016.08.17 更新: repo 權限經測試只需 <code>public_repo</code>）<br><img src="/blog/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token"></p>
 <h3 id="Travis-CI-console-設定"><a href="#Travis-CI-console-設定" class="headerlink" title="Travis CI console 設定"></a>Travis CI console 設定</h3><p>剛剛申請的 token 是為了給 Travis 在最後階段發布時有 push 到 <code>master</code> 的權限，而且又不想讓 token 外洩所以利用 travis 環境變數設定的方式將資訊透漏給 travis 執行中的實體。</p>
 <ul>
 <li>到相應的 repository <code>settings</code> 底下，把剛剛產生的 token 新增進 Travis 環境變數，這邊的環境變數我取名為 <code>DEPLOY_TOKEN</code>。</li>
 </ul>
-<img src="/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
+<img src="/blog/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
 <h3 id="Travis-CI-執行設定：Your-travis-yml-config"><a href="#Travis-CI-執行設定：Your-travis-yml-config" class="headerlink" title="Travis CI 執行設定：Your .travis.yml config"></a>Travis CI 執行設定：Your .travis.yml config</h3><p>附上我的 <code>.travis.yml</code> 做為參考，整個建構流程分三步：取得歷史（fetch old commits history），產生檔案（<code>hexo</code> generate static files），發布結果（<code>git push</code> changes of static files to <code>master</code>）</p>
 <p><strong>必須要先確定 hexo 相關相依都有紀錄在 package.json</strong>，sample: <a href="https://github.com/leVirve/leVirve.github.io/blob/raw/package.json" target="_blank" rel="external">package.json</a></p>
 <ul>
@@ -134,7 +134,7 @@
 <li><p>完工 (ゝ∀･)b！ 記得加上 Line#26 確保 travis build 只 run 有原始碼這個 branch 喔～</p>
 </li>
 </ul>
-<figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> node_modules</div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> git clone --branch master https://github.com/leVirve/leVirve.github.io public</div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> npm run build</div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> cd public</div><div class="line"><span class="bullet">  -</span> git config user.name <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> git config user.email <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> git add --all .</div><div class="line"><span class="bullet">  -</span> git commit -m <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> git push https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master</div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> raw</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> <span class="string">node_js</span></div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">node_modules</span></div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">clone</span> <span class="bullet">--branch</span> <span class="string">master</span> <span class="attr">https://github.com/leVirve/leVirve.github.io</span> <span class="string">public</span></div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">cd</span> <span class="string">public</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">add</span> <span class="bullet">--all</span> <span class="string">.</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">push</span> <span class="attr">https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git</span> <span class="string">master</span></div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">raw</span></div></pre></td></tr></table></figure>
 <h3 id="Continuous-delivery-持續交付-d-d＇∀＇"><a href="#Continuous-delivery-持續交付-d-d＇∀＇" class="headerlink" title="Continuous delivery 持續交付 d(d＇∀＇)"></a>Continuous delivery 持續交付 d(d＇∀＇)</h3><p>所以現在只要寫了一篇文章，然後把內容 commit 到 <code>raw</code> branch 就會自動透過 travis 建置並發布到 <code>master</code> 分支上（也就是 xxxxx.github.io 顯示的靜態頁面）。</p>
 <p>這有比剛剛那兩行 hexo 指令方便嗎？？？<br>.<br>.<br>.<br>.<br>.<br><strong>並沒有</strong> XDDD 若單比較指令長度，git commit 一次就要打一大堆字</p>
 <p>但是好處（side effects）是：</p>
@@ -170,13 +170,13 @@
       &lt;p&gt;Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌&lt;strong&gt;不夠懶人&lt;/strong&gt;啊 XDD&lt;/p&gt;
 &lt;p&gt;-&lt;br&gt;  &lt;strong&gt;認真原因：&lt;/strong&gt; 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw &lt;code&gt;Markdown&lt;/code&gt; documents），設定檔 （config） 保存在遠端，就失去部分使用 Github 等 remote repository 的意義了。&lt;br&gt;-&lt;/p&gt;
 &lt;h2 id=&quot;原始方法&quot;&gt;&lt;a href=&quot;#原始方法&quot; class=&quot;headerlink&quot; title=&quot;原始方法&quot;&gt;&lt;/a&gt;原始方法&lt;/h2&gt;&lt;p&gt;只有單一分支 (master)，並手動產生靜態檔然後透過 git 提交發布靜態檔上的變更。&lt;/p&gt;
-&lt;p&gt;原本使用 &lt;a href=&quot;https://github.com/hexojs/hexo-deployer-git&quot;&gt;hexo-deployer-git&lt;/a&gt; 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：&lt;/p&gt;
+&lt;p&gt;原本使用 &lt;a href=&quot;https://github.com/hexojs/hexo-deployer-git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo-deployer-git&lt;/a&gt; 來發布，只需要底下這些設定。當然必須先自行設定好 Github SSH Key 或者 Personal Access Token），兩者 URL 分別長這樣：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Github SSH Key:&lt;/strong&gt; for &lt;code&gt;git@github.com:leVirve/leVirve.github.io.git&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Personal Access Token:&lt;/strong&gt; for &lt;code&gt;https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;figcaption&gt;&lt;span&gt;_config.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Deployment&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## Docs: http://hexo.io/docs/deployment.html&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;deploy:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  type:&lt;/span&gt; git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  repo:&lt;/span&gt; git@github.com:leVirve/leVirve.github.io.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  branch:&lt;/span&gt; master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  message:&lt;/span&gt; push by hexo-deploy&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;figcaption&gt;&lt;span&gt;_config.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Deployment&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## Docs: http://hexo.io/docs/deployment.html&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;deploy:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  type:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;git&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  repo:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;git@github.com:leVirve/leVirve.github.io.git&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  branch:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;master&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  message:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;hexo-deploy&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo generate  &lt;span class=&quot;comment&quot;&gt;# 可縮寫成 =&amp;gt; hexo g&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ hexo deploy    &lt;span class=&quot;comment&quot;&gt;# 可縮寫成 =&amp;gt; hexo d&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。&lt;/p&gt;
@@ -184,24 +184,24 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://levirve.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://levirve.github.io/blog/tags/Hexo/"/>
     
-      <category term="Travis" scheme="https://levirve.github.io/tags/Travis/"/>
+      <category term="Travis" scheme="https://levirve.github.io/blog/tags/Travis/"/>
     
   </entry>
   
   <entry>
     <title>Dcard 爬蟲於 Python 實作成果：dcard-spider</title>
-    <link href="https://levirve.github.io/2016/dcard-spider-python-package/"/>
-    <id>https://levirve.github.io/2016/dcard-spider-python-package/</id>
-    <published>2016-07-30T17:24:44.000Z</published>
-    <updated>2016-08-25T13:14:41.199Z</updated>
+    <link href="https://levirve.github.io/blog/2016/dcard-spider-python-package/"/>
+    <id>https://levirve.github.io/blog/2016/dcard-spider-python-package/</id>
+    <published>2016-07-30T09:24:44.000Z</published>
+    <updated>2017-07-30T14:51:16.637Z</updated>
     
     <content type="html"><![CDATA[<p>上次談到了 Dcard 現在官方實際 production 中使用的 API URL 規則，並且撰寫了簡單的 Python scripts 來取得小部分資料。<br>而這樣的成果適合用來做小規模的後續應用，例如特定版的當日或當月文章分析等等；然而若是要拿下全站的資料，那麼我們上次的程式範例本身必須要改善來讓後續方便擴充（其實是上次程式趕工寫太醜，生理上不能接受(?) 完全沒有想要直接沿用的念頭 XD）。</p>
 <p>那麼接下來的概念就是：</p>
 <ol>
 <li><p>我要一隻大蜘蛛（比起 crawler，我選擇 Spider！聽起來就比較猛，以下都用 spider 稱呼這隻網路爬蟲 顆顆）</p>
-<img src="/2016/dcard-spider-python-package/Giant_spider_strikes.jpg" alt="[Giant spider strikes from wiki]" title="[Giant spider strikes from wiki]">
+<img src="/blog/2016/dcard-spider-python-package/Giant_spider_strikes.jpg" alt="[Giant spider strikes from wiki]" title="[Giant spider strikes from wiki]">
 </li>
 <li><p>那除了核心的軀幹之外需要先造八隻 <del>蟹</del> 腳啊！上次那個品質．．．可是撐不起這隻巨型蜘蛛的</p>
 </li>
@@ -326,11 +326,11 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> dcard <span class="keyword">import</span> Dcard</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_hot</span><span class="params">(metas)</span>:</span></div><div class="line">    <span class="keyword">return</span> [meta <span class="keyword">for</span> meta <span class="keyword">in</span> metas <span class="keyword">if</span> meta[<span class="string">'likeCount'</span>] &gt;= <span class="number">100</span>]</div><div class="line"></div><div class="line">dcard = Dcard()</div><div class="line"><span class="comment"># 先抓百篇 meta 出來，然後過濾出熱門的</span></div><div class="line">metas = dcard.forums(<span class="string">'photography'</span>).get_metas(num=<span class="number">100</span>, callback=filter_hot)</div><div class="line"><span class="comment"># 因為只想要分析內文裡的圖片 若是連留言回復的圖都要憶起分析，那就將 comments=False 拿掉</span></div><div class="line">posts = dcard.posts(metas).get(comments=<span class="keyword">False</span>, links=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">resources = posts.parse_resources()  <span class="comment"># 開始分析文章內的圖片</span></div><div class="line">fin, fails = posts.download(resources)  <span class="comment"># 下載分析出來的圖片</span></div><div class="line"></div><div class="line">print(<span class="string">'成功下載 %d 項！'</span> % fin <span class="keyword">if</span> len(fails) == <span class="number">0</span> <span class="keyword">else</span> <span class="string">'出了點錯下載不完全喔'</span>)</div></pre></td></tr></table></figure>
 <p><strong>指令做法</strong></p>
 <p>本 package 提供 <code>command-line</code> 式使用方法唷~ 方便又簡單</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dcard download <span class="_">-f</span> photography -n 100 -likes 100</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dcard download -f photography -n 100 -likes 100</div></pre></td></tr></table></figure>
 <ul>
 <li>結果：</li>
 </ul>
-<img src="/2016/dcard-spider-python-package/snapshot.png" alt="執行成果" title="執行成果">
+<img src="/blog/2016/dcard-spider-python-package/snapshot.png" alt="執行成果" title="執行成果">
 <p>以上就是我的 dcard-spider 架構分享。若有發現 bugs 或 功能建議歡迎至 Github issues 留言~</p>
 <p>Salas / 2016.08</p>
 ]]></content>
@@ -341,30 +341,30 @@
 &lt;p&gt;那麼接下來的概念就是：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;我要一隻大蜘蛛（比起 crawler，我選擇 Spider！聽起來就比較猛，以下都用 spider 稱呼這隻網路爬蟲 顆顆）&lt;/p&gt;
-&lt;img src=&quot;/2016/dcard-spider-python-package/Giant_spider_strikes.jpg&quot; alt=&quot;[Giant spider strikes from wiki]&quot; title=&quot;[Giant spider strikes from wiki]&quot;&gt;
+&lt;img src=&quot;/blog/2016/dcard-spider-python-package/Giant_spider_strikes.jpg&quot; alt=&quot;[Giant spider strikes from wiki]&quot; title=&quot;[Giant spider strikes from wiki]&quot;&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;那除了核心的軀幹之外需要先造八隻 &lt;del&gt;蟹&lt;/del&gt; 腳啊！上次那個品質．．．可是撐不起這隻巨型蜘蛛的&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;不知所云，總之就是把之前的概念打造成好用的腿就對了。之後蜘蛛好辦事！&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;成果已經發布在 &lt;a href=&quot;https://pypi.python.org/pypi/dcard-spider&quot;&gt;PyPI&lt;/a&gt; 以及 &lt;a href=&quot;https://github.com/leVirve/dcard-spider&quot;&gt;Github&lt;/a&gt; 上了。&lt;/p&gt;
+&lt;p&gt;成果已經發布在 &lt;a href=&quot;https://pypi.python.org/pypi/dcard-spider&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PyPI&lt;/a&gt; 以及 &lt;a href=&quot;https://github.com/leVirve/dcard-spider&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt; 上了。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="Python" scheme="https://levirve.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://levirve.github.io/blog/tags/Python/"/>
     
-      <category term="Spider" scheme="https://levirve.github.io/tags/Spider/"/>
+      <category term="Spider" scheme="https://levirve.github.io/blog/tags/Spider/"/>
     
   </entry>
   
   <entry>
     <title>Dccard 爬蟲，透過官方API</title>
-    <link href="https://levirve.github.io/2016/Dccard-crawler/"/>
-    <id>https://levirve.github.io/2016/Dccard-crawler/</id>
-    <published>2016-07-12T21:55:44.000Z</published>
-    <updated>2016-08-25T13:14:41.199Z</updated>
+    <link href="https://levirve.github.io/blog/2016/Dccard-crawler/"/>
+    <id>https://levirve.github.io/blog/2016/Dccard-crawler/</id>
+    <published>2016-07-12T13:55:44.000Z</published>
+    <updated>2017-07-30T14:51:16.634Z</updated>
     
     <content type="html"><![CDATA[<p>原本爬蟲使用 PTT 作為練習標的，但是年輕人好像已經不流行用這個(?)，而且另一方面也不想在頁面 parsing 上花太多功夫。<br>這次想要練習的東西是爬蟲架構以及其他後續應用，而不再拘泥處理資料本身；所以選擇了與 PTT 相似性質且擁有 API 的 Dcard 作為實驗目標。</p>
 <a id="more"></a>
@@ -415,7 +415,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_forums</span><span class="params">(**kwargs)</span>:</span></div><div class="line">    url = <span class="string">'&#123;api_root&#125;/&#123;api_forums&#125;'</span>.format(</div><div class="line">        api_root=Dcard.API_ROOT, api_forums=Dcard.FORUMS)</div><div class="line">    forums = get(url)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> kwargs.get(<span class="string">'no_school'</span>):</div><div class="line">        <span class="keyword">return</span> [forum <span class="keyword">for</span> forum <span class="keyword">in</span> filter_general(forums)]</div><div class="line"></div><div class="line">    <span class="keyword">return</span> forums</div></pre></td></tr></table></figure>
 <p>參數中加入 <code>no_school</code> 來控制是否過濾掉學校看板。之後想做的分析會著重於比較熱門的一般性看板，所以這邊做個開關決定是否去掉這些特定看板。</p>
 <p>Step2. 替 class <code>Dcard</code> 新增 method，取得看板內文章資訊 (metadata)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_post_metas</span><span class="params">(forum, params)</span>:</span></div><div class="line">    url = <span class="string">'&#123;api_root&#125;/&#123;api_forums&#125;/&#123;forum&#125;/&#123;api_posts&#125;'</span>.format(</div><div class="line">        api_root=Dcard.API_ROOT,</div><div class="line">        api_forums=Dcard.FORUMS,</div><div class="line">        api_posts=Dcard.POSTS,</div><div class="line">        forum=forum</div><div class="line">    )</div><div class="line">    article_metas = get(url, params=params)</div><div class="line">    <span class="keyword">return</span> article_metas</div><div class="line"></div><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_post_ids</span><span class="params">(forum, pages=<span class="number">3</span>)</span>:</span></div><div class="line">    <span class="string">''' </span></div><div class="line">        為了一次取的更多頁的文章 (可以把一次 request 取得 30 筆，視作取得一頁)</div><div class="line">        使用此 method 將 `get_post_metas` 做包裝，提供一次抓取多頁文章資訊，</div><div class="line">        且通常是為了之後用途而抓取 &#123;文章編號&#125;。</div><div class="line">    '''</div><div class="line">    params = &#123;<span class="string">'popular'</span>: <span class="keyword">False</span>&#125;</div><div class="line">    ids = []</div><div class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(pages):</div><div class="line">        metas = Dcard.get_post_metas(forum, params)</div><div class="line">        ids += [e[<span class="string">'id'</span>] <span class="keyword">for</span> e <span class="keyword">in</span> metas]</div><div class="line">        params[<span class="string">'before'</span>] = ids[<span class="number">-1</span>]</div><div class="line">    <span class="keyword">return</span> ids</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_post_metas</span><span class="params">(forum, params)</span>:</span></div><div class="line">    url = <span class="string">'&#123;api_root&#125;/&#123;api_forums&#125;/&#123;forum&#125;/&#123;api_posts&#125;'</span>.format(</div><div class="line">        api_root=Dcard.API_ROOT,</div><div class="line">        api_forums=Dcard.FORUMS,</div><div class="line">        api_posts=Dcard.POSTS,</div><div class="line">        forum=forum</div><div class="line">    )</div><div class="line">    article_metas = get(url, params=params)</div><div class="line">    <span class="keyword">return</span> article_metas</div><div class="line"></div><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_post_ids</span><span class="params">(forum, pages=<span class="number">3</span>)</span>:</span></div><div class="line">    <span class="string">''' </span></div><div class="line"><span class="string">        為了一次取的更多頁的文章 (可以把一次 request 取得 30 筆，視作取得一頁)</span></div><div class="line"><span class="string">        使用此 method 將 `get_post_metas` 做包裝，提供一次抓取多頁文章資訊，</span></div><div class="line"><span class="string">        且通常是為了之後用途而抓取 &#123;文章編號&#125;。</span></div><div class="line"><span class="string">    '''</span></div><div class="line">    params = &#123;<span class="string">'popular'</span>: <span class="keyword">False</span>&#125;</div><div class="line">    ids = []</div><div class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(pages):</div><div class="line">        metas = Dcard.get_post_metas(forum, params)</div><div class="line">        ids += [e[<span class="string">'id'</span>] <span class="keyword">for</span> e <span class="keyword">in</span> metas]</div><div class="line">        params[<span class="string">'before'</span>] = ids[<span class="number">-1</span>]</div><div class="line">    <span class="keyword">return</span> ids</div></pre></td></tr></table></figure>
 <p>Step3. 最終的重點，取得單篇文章內的所有資訊，分為：內文、引用連結、留言三個部分</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@staticmethod</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_post_content</span><span class="params">(post_meta)</span>:</span></div><div class="line">    post_url = <span class="string">'&#123;api_root&#125;/&#123;api_posts&#125;/&#123;post_id&#125;'</span>.format(</div><div class="line">        api_root=Dcard.API_ROOT,</div><div class="line">        api_posts=Dcard.POSTS,</div><div class="line">        post_id=post_meta[<span class="string">'id'</span>]</div><div class="line">    )</div><div class="line">    links_url = <span class="string">'&#123;post_url&#125;/links'</span>.format(post_url=post_url)</div><div class="line">    comments_url = <span class="string">'&#123;post_url&#125;/comments'</span>.format(post_url=post_url)</div><div class="line"></div><div class="line">    params = &#123;&#125;</div><div class="line"></div><div class="line">    content = get(post_url)</div><div class="line">    links = get(links_url)</div><div class="line">    comments = []</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        _comments = get(comments_url, params=params, verbose=<span class="keyword">True</span>)</div><div class="line">        <span class="keyword">if</span> len(_comments) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        comments += _comments</div><div class="line">        params[<span class="string">'after'</span>] = comments[<span class="number">-1</span>][<span class="string">'floor'</span>]</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="string">'content'</span>: content,</div><div class="line">        <span class="string">'links'</span>: links,</div><div class="line">        <span class="string">'comments'</span>: comments</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>透過 Dcard <code>現正偷偷使用中</code> 的官方 API，完成了我們的基本爬蟲。</p>
@@ -429,24 +429,24 @@
     </summary>
     
     
-      <category term="Python" scheme="https://levirve.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://levirve.github.io/blog/tags/Python/"/>
     
-      <category term="Spider" scheme="https://levirve.github.io/tags/Spider/"/>
+      <category term="Spider" scheme="https://levirve.github.io/blog/tags/Spider/"/>
     
   </entry>
   
   <entry>
     <title>網路爬蟲 Crawler Tutorial - (1) 簡介</title>
-    <link href="https://levirve.github.io/2016/what-is-crawler/"/>
-    <id>https://levirve.github.io/2016/what-is-crawler/</id>
-    <published>2016-02-09T22:52:00.000Z</published>
-    <updated>2016-08-25T13:14:41.203Z</updated>
+    <link href="https://levirve.github.io/blog/2016/what-is-crawler/"/>
+    <id>https://levirve.github.io/blog/2016/what-is-crawler/</id>
+    <published>2016-02-09T14:52:00.000Z</published>
+    <updated>2017-07-30T14:51:16.664Z</updated>
     
     <content type="html"><![CDATA[<h1 id="知識科普"><a href="#知識科普" class="headerlink" title="知識科普"></a>知識科普</h1><p>先不多做解釋直接看看，Wiki 怎麼說: <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B" target="_blank" rel="external">網路爬蟲</a></p>
 <blockquote>
 <p>是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。</p>
 </blockquote>
-<img src="/2016/what-is-crawler/demo.jpg" alt="The Social Network 場景 @www.blu-ray.com" title="The Social Network 場景 @www.blu-ray.com">
+<img src="/blog/2016/what-is-crawler/demo.jpg" alt="The Social Network 場景 @www.blu-ray.com" title="The Social Network 場景 @www.blu-ray.com">
 <a id="more"></a>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>為什麼首圖要放 <em>The Social Network</em> 中的場景呢？看過這部電影的不妨試著回想一下，片中 Mark Zuckerberg 在宿舍做了什麼事？</p>
 <p><img src="http://ecx.images-amazon.com/images/I/815a7Z-t0pL._SL1500_.jpg" alt="(Media from Amazon)"></p>
@@ -462,29 +462,29 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;知識科普&quot;&gt;&lt;a href=&quot;#知識科普&quot; class=&quot;headerlink&quot; title=&quot;知識科普&quot;&gt;&lt;/a&gt;知識科普&lt;/h1&gt;&lt;p&gt;先不多做解釋直接看看，Wiki 怎麼說: &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B&quot;&gt;網路爬蟲&lt;/a&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;知識科普&quot;&gt;&lt;a href=&quot;#知識科普&quot; class=&quot;headerlink&quot; title=&quot;知識科普&quot;&gt;&lt;/a&gt;知識科普&lt;/h1&gt;&lt;p&gt;先不多做解釋直接看看，Wiki 怎麼說: &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E8%9C%98%E8%9B%9B&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;網路爬蟲&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img src=&quot;/2016/what-is-crawler/demo.jpg&quot; alt=&quot;The Social Network 場景 @www.blu-ray.com&quot; title=&quot;The Social Network 場景 @www.blu-ray.com&quot;&gt;
+&lt;img src=&quot;/blog/2016/what-is-crawler/demo.jpg&quot; alt=&quot;The Social Network 場景 @www.blu-ray.com&quot; title=&quot;The Social Network 場景 @www.blu-ray.com&quot;&gt;
     
     </summary>
     
-      <category term="Python" scheme="https://levirve.github.io/categories/Python/"/>
+      <category term="Python" scheme="https://levirve.github.io/blog/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://levirve.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://levirve.github.io/blog/tags/Python/"/>
     
-      <category term="爬蟲" scheme="https://levirve.github.io/tags/%E7%88%AC%E8%9F%B2/"/>
+      <category term="爬蟲" scheme="https://levirve.github.io/blog/tags/%E7%88%AC%E8%9F%B2/"/>
     
   </entry>
   
   <entry>
     <title>你好，我是…</title>
-    <link href="https://levirve.github.io/2015/hello-world/"/>
-    <id>https://levirve.github.io/2015/hello-world/</id>
-    <published>2015-12-07T11:06:47.000Z</published>
-    <updated>2016-08-25T13:14:41.203Z</updated>
+    <link href="https://levirve.github.io/blog/2015/hello-world/"/>
+    <id>https://levirve.github.io/blog/2015/hello-world/</id>
+    <published>2015-12-07T03:06:47.000Z</published>
+    <updated>2017-07-30T14:51:16.643Z</updated>
     
     <content type="html"><![CDATA[
 <p>N年前就說重返來寫寫部落格自娛娛人，現在終於準備開始啦(吧?)<br><a id="more"></a></p>
@@ -515,22 +515,22 @@
     </summary>
     
     
-      <category term="Hello" scheme="https://levirve.github.io/tags/Hello/"/>
+      <category term="Hello" scheme="https://levirve.github.io/blog/tags/Hello/"/>
     
-      <category term="開箱文" scheme="https://levirve.github.io/tags/%E9%96%8B%E7%AE%B1%E6%96%87/"/>
+      <category term="Hexo" scheme="https://levirve.github.io/blog/tags/Hexo/"/>
     
-      <category term="Hexo" scheme="https://levirve.github.io/tags/Hexo/"/>
+      <category term="開箱文" scheme="https://levirve.github.io/blog/tags/%E9%96%8B%E7%AE%B1%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>Python 奇幻之旅：我到底看了什麼！</title>
-    <link href="https://levirve.github.io/2015/python-fantasy/"/>
-    <id>https://levirve.github.io/2015/python-fantasy/</id>
-    <published>2015-07-09T22:52:00.000Z</published>
-    <updated>2016-08-25T13:14:41.203Z</updated>
+    <link href="https://levirve.github.io/blog/2015/python-fantasy/"/>
+    <id>https://levirve.github.io/blog/2015/python-fantasy/</id>
+    <published>2015-07-09T14:52:00.000Z</published>
+    <updated>2017-07-30T14:51:16.658Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Charpter-1"><a href="#Charpter-1" class="headerlink" title="Charpter 1"></a>Charpter 1</h1><img src="/2015/python-fantasy/fantasy.jpg" alt="photo-manipulation-digital-art-421405" title="photo-manipulation-digital-art-421405">
+    <content type="html"><![CDATA[<h1 id="Charpter-1"><a href="#Charpter-1" class="headerlink" title="Charpter 1"></a>Charpter 1</h1><img src="/blog/2015/python-fantasy/fantasy.jpg" alt="photo-manipulation-digital-art-421405" title="photo-manipulation-digital-art-421405">
 <a id="more"></a>
 <h2 id="Python-是什麼？"><a href="#Python-是什麼？" class="headerlink" title="Python 是什麼？"></a>Python 是什麼？</h2><p>一種程式語言。不然還能是什麼？<br><del>當然是一種信仰。</del></p>
 <h2 id="Python-可以幹嘛？"><a href="#Python-可以幹嘛？" class="headerlink" title="Python 可以幹嘛？"></a>Python 可以幹嘛？</h2><ul>
@@ -555,13 +555,13 @@
 </ul>
 <p><img src="https://dl.dropboxusercontent.com/u/105585325/images/py-char.png" alt="Python Characters"></p>
 <h2 id="啊，然後咧？"><a href="#啊，然後咧？" class="headerlink" title="啊，然後咧？"></a>啊，然後咧？</h2><p>我已經知道 Python 好棒棒了，那又怎樣？說好的奇幻世界咧？（敲碗）<br>別急別急，現在就來造船吧！（什麼，竟然要從這開始？！崩潰～）</p>
-<p>Mac 跟 Linux 發行板基本上都有內建 Python2.7，不過之後都是用 Python3 做講解喔～至於為什麼等等會說明。<br>這邊就用Debian / Ubuntu 示範安裝 Python3 囉：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> install <span class="keyword">python3</span></div></pre></td></tr></table></figure></p>
+<p>Mac 跟 Linux 發行板基本上都有內建 Python2.7，不過之後都是用 Python3 做講解喔～至於為什麼等等會說明。<br>這邊就用Debian / Ubuntu 示範安裝 Python3 囉：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="builtin-name">get</span> install python3</div></pre></td></tr></table></figure></p>
 <p>如果是 Windows 呢，就照著以下步驟做：<br>至<a href="https://www.python.org/downloads/" target="_blank" rel="external">Python 官方網站</a>下載安裝檔。</p>
 <p>進入頁面後會發現有兩個版本：分別是 2.x 和 3.x 版，那應該選擇哪個呢？<br>這邊是有個小故事：因為 Python 3 改動的內容無法保證讓舊的 Python 2 程式碼完全升級成新版，可能讓原本 Python2 正確執行的程式碼爆炸。最後 Python 無法勉強開發者全部升級，只好繼續推出兩個版本，不過相信全面換上 Python3 是以後的趨勢。</p>
 <p>這小故事告訴我們<em>兼容舊版</em>的重要性；不過這也不一定是好事，可能為了兼容性而讓整個架構變得更複雜，例如：Intel…，這又是題外話了。不過新入門並沒有舊版包袱，所以可以直接選擇 Python 3。</p>
 <p>Okay, 按照安裝步驟裝好 Python 之後記得將你安裝的 Python 目錄寫進系統<strong>環境變數</strong>，這邊因為筆者個人的管理習慣將之安裝於 <code>C:\</code> 槽底下。並將 <code>C:\Python34</code> 及 <code>C:\Python34\Scripts</code> 加入環境變數。（這邊是以安裝 Python3.4 為例。）</p>
 <p><img src="https://dl.dropboxusercontent.com/u/105585325/images/env_var.png" alt="System Enviroment Setting"></p>
-<p>打開命令列輸入指令確認<strong>環境變數</strong>設定成功：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>python -V</div></pre></td></tr></table></figure></p>
+<p>打開命令列輸入指令確認<strong>環境變數</strong>設定成功：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python -V</span></div></pre></td></tr></table></figure></p>
 <p>若跳出剛剛選擇安裝的版本號碼，則代表設定成功。</p>
 <p><img src="https://dl.dropboxusercontent.com/u/105585325/images/py-V.png" alt="Python Version"></p>
 <h2 id="出航囉！"><a href="#出航囉！" class="headerlink" title="出航囉！"></a>出航囉！</h2><p>第一次出航我們先用內建的編輯器 IDLE，從應用程式選單裡找出 Python &gt; <code>IDLE(Python GUI)</code>。</p>
@@ -575,12 +575,12 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Charpter-1&quot;&gt;&lt;a href=&quot;#Charpter-1&quot; class=&quot;headerlink&quot; title=&quot;Charpter 1&quot;&gt;&lt;/a&gt;Charpter 1&lt;/h1&gt;&lt;img src=&quot;/2015/python-fantasy/fantasy.jpg&quot; alt=&quot;photo-manipulation-digital-art-421405&quot; title=&quot;photo-manipulation-digital-art-421405&quot;&gt;
+      &lt;h1 id=&quot;Charpter-1&quot;&gt;&lt;a href=&quot;#Charpter-1&quot; class=&quot;headerlink&quot; title=&quot;Charpter 1&quot;&gt;&lt;/a&gt;Charpter 1&lt;/h1&gt;&lt;img src=&quot;/blog/2015/python-fantasy/fantasy.jpg&quot; alt=&quot;photo-manipulation-digital-art-421405&quot; title=&quot;photo-manipulation-digital-art-421405&quot;&gt;
     
     </summary>
     
     
-      <category term="Python" scheme="https://levirve.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://levirve.github.io/blog/tags/Python/"/>
     
   </entry>
   

@@ -5,26 +5,22 @@
   
   <title>網路爬蟲 Crawler Tutorial - (1) 簡介 | Salas&#39;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="知識科普先不多做解釋直接看看，Wiki 怎麼說: 網路爬蟲
-
-是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。">
+  <meta name="description" content="知識科普先不多做解釋直接看看，Wiki 怎麼說: 網路爬蟲  是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。">
+<meta name="keywords" content="Python,爬蟲">
 <meta property="og:type" content="article">
 <meta property="og:title" content="網路爬蟲 Crawler Tutorial - (1) 簡介">
-<meta property="og:url" content="https://levirve.github.io/2016/what-is-crawler/index.html">
-<meta property="og:site_name" content="Salas'">
-<meta property="og:description" content="知識科普先不多做解釋直接看看，Wiki 怎麼說: 網路爬蟲
-
-是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。">
-<meta property="og:image" content="https://levirve.github.io/2016/what-is-crawler/demo.jpg">
+<meta property="og:url" content="https://levirve.github.io/blog/2016/what-is-crawler/index.html">
+<meta property="og:site_name" content="Salas&#39;">
+<meta property="og:description" content="知識科普先不多做解釋直接看看，Wiki 怎麼說: 網路爬蟲  是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/what-is-crawler/demo.jpg">
 <meta property="og:image" content="http://ecx.images-amazon.com/images/I/815a7Z-t0pL._SL1500_.jpg">
 <meta property="og:image" content="http://i.imgur.com/oeujxCW.png">
-<meta property="og:updated_time" content="2016-08-25T13:14:41.203Z">
+<meta property="og:updated_time" content="2017-07-30T14:51:16.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="網路爬蟲 Crawler Tutorial - (1) 簡介">
-<meta name="twitter:description" content="知識科普先不多做解釋直接看看，Wiki 怎麼說: 網路爬蟲
-
-是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。">
-<meta name="twitter:image" content="https://levirve.github.io/2016/what-is-crawler/demo.jpg">
+<meta name="twitter:description" content="知識科普先不多做解釋直接看看，Wiki 怎麼說: 網路爬蟲  是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。">
+<meta name="twitter:image" content="https://levirve.github.io/blog/2016/what-is-crawler/demo.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
   
@@ -34,7 +30,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
 </head>
 
 <body>
@@ -45,11 +41,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Salas&#39;</a>
+        <a href="/blog/" id="logo">Salas&#39;</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Do it for your pride.</a>
+          <a href="/blog/" id="subtitle">Do it for your pride.</a>
         </h2>
       
     </div>
@@ -57,9 +53,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/blog/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
         
           <a class="main-nav-link" href="https://github.com/leVirve">GitHub</a>
         
@@ -71,7 +67,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -79,12 +75,12 @@
       <div class="outer">
         <section id="main"><article id="post-what-is-crawler" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/what-is-crawler/" class="article-date">
-  <time datetime="2016-02-09T22:52:00.000Z" itemprop="datePublished">2016-02-09</time>
+    <a href="/blog/2016/what-is-crawler/" class="article-date">
+  <time datetime="2016-02-09T14:52:00.000Z" itemprop="datePublished">2016-02-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/blog/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -107,7 +103,7 @@
 <blockquote>
 <p>是一種「自動化瀏覽網路」的程式，或者說是一種網路機器人。被用於自動採集頁面內容，以供做進一步處理（分析整理下載的頁面），讓使用者能更快取得需要的資訊。</p>
 </blockquote>
-<img src="/2016/what-is-crawler/demo.jpg" alt="The Social Network 場景 @www.blu-ray.com" title="The Social Network 場景 @www.blu-ray.com">
+<img src="/blog/2016/what-is-crawler/demo.jpg" alt="The Social Network 場景 @www.blu-ray.com" title="The Social Network 場景 @www.blu-ray.com">
 <a id="more"></a>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>為什麼首圖要放 <em>The Social Network</em> 中的場景呢？看過這部電影的不妨試著回想一下，片中 Mark Zuckerberg 在宿舍做了什麼事？</p>
 <p><img src="http://ecx.images-amazon.com/images/I/815a7Z-t0pL._SL1500_.jpg" alt="(Media from Amazon)"></p>
@@ -123,12 +119,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/what-is-crawler/" data-id="cisacq2zx000dn7e6gp43gys1" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/blog/2016/what-is-crawler/" data-id="cj5qvnc7v000a14rpn93b42t7" class="article-share-link">Share</a>
       
-        <a href="https://levirve.github.io/2016/what-is-crawler/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://levirve.github.io/blog/2016/what-is-crawler/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬蟲/">爬蟲</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/爬蟲/">爬蟲</a></li></ul>
 
     </footer>
   </div>
@@ -136,7 +132,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/Dccard-crawler/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/Dccard-crawler/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -146,7 +142,7 @@
     </a>
   
   
-    <a href="/2015/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2015/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">你好，我是…</div>
     </a>
@@ -170,7 +166,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/VSCode/">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -180,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -193,7 +189,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Salas (leVirve)<br>
+      &copy; 2017 Salas (leVirve)<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -201,9 +197,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
     <a href="https://github.com/leVirve" class="mobile-nav-link">GitHub</a>
   
@@ -212,7 +208,7 @@
 <script>
   var disqus_shortname = 'salasnote';
   
-  var disqus_url = 'https://levirve.github.io/2016/what-is-crawler/';
+  var disqus_url = 'https://levirve.github.io/blog/2016/what-is-crawler/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -227,11 +223,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/blog/js/script.js"></script>
 
 <!-- Google Analytics -->
 <script type="text/javascript">

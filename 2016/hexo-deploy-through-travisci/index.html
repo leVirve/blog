@@ -5,23 +5,22 @@
   
   <title>使用 Travis CI 自動發布 hexo 到 Github pages | Salas&#39;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
--  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
+  <meta name="description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD -  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
+<meta name="keywords" content="Hexo,Travis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Travis CI 自動發布 hexo 到 Github pages">
-<meta property="og:url" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/index.html">
-<meta property="og:site_name" content="Salas'">
-<meta property="og:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
--  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
-<meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/branches.png">
-<meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/github_token.png">
-<meta property="og:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/travis_console.png">
-<meta property="og:updated_time" content="2016-08-25T13:14:41.203Z">
+<meta property="og:url" content="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/index.html">
+<meta property="og:site_name" content="Salas&#39;">
+<meta property="og:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD -  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/branches.png">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/github_token.png">
+<meta property="og:image" content="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/travis_console.png">
+<meta property="og:updated_time" content="2017-07-30T14:51:16.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Travis CI 自動發布 hexo 到 Github pages">
-<meta name="twitter:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD
--  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
-<meta name="twitter:image" content="https://levirve.github.io/2016/hexo-deploy-through-travisci/branches.png">
+<meta name="twitter:description" content="Hexo 雖然已經提供很好的指令來更新和發布文章，但是仍然嫌不夠懶人啊 XDD -  認真原因： 原本的作法只能讓產生檔案後的靜態 HTML/CSS/Javascript 等內容放到 Github 上，然後透過 Github pages 自動展示網頁 (也就是目前看到的 blog)。但這樣無法將原始文字檔 （raw Markdown documents），設定檔 （config） 保存在遠端，就失">
+<meta name="twitter:image" content="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/branches.png">
   
     <link rel="alternate" href="/atom.xml" title="Salas&#39;" type="application/atom+xml">
   
@@ -31,7 +30,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
 </head>
 
 <body>
@@ -42,11 +41,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Salas&#39;</a>
+        <a href="/blog/" id="logo">Salas&#39;</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Do it for your pride.</a>
+          <a href="/blog/" id="subtitle">Do it for your pride.</a>
         </h2>
       
     </div>
@@ -54,9 +53,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/blog/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
         
           <a class="main-nav-link" href="https://github.com/leVirve">GitHub</a>
         
@@ -68,7 +67,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://levirve.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -76,8 +75,8 @@
       <div class="outer">
         <section id="main"><article id="post-hexo-deploy-through-travisci" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/hexo-deploy-through-travisci/" class="article-date">
-  <time datetime="2016-08-16T11:06:47.000Z" itemprop="datePublished">2016-08-16</time>
+    <a href="/blog/2016/hexo-deploy-through-travisci/" class="article-date">
+  <time datetime="2016-08-16T03:06:47.000Z" itemprop="datePublished">2016-08-16</time>
 </a>
     
   </div>
@@ -105,7 +104,7 @@
 <li><strong>Personal Access Token:</strong> for <code>https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git</code></li>
 </ul>
 <p>這邊我選擇使用 ssh key 方法的 Repo. URL，因為平常就有一把在 Github 操作用的 key。</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> git@github.com:leVirve/leVirve.github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> push by hexo-deploy</div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:leVirve/leVirve.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div><div class="line"><span class="attr">  message:</span> <span class="string">push</span> <span class="string">by</span> <span class="string">hexo-deploy</span></div><div class="line"></div></pre></td></tr></table></figure>
 <p>然後打開 terminal 快樂地打上兩行指令就完成文章更新和發布了！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  <span class="comment"># 可縮寫成 =&gt; hexo g</span></div><div class="line">$ hexo deploy    <span class="comment"># 可縮寫成 =&gt; hexo d</span></div></pre></td></tr></table></figure>
 <p>兩行指令還不夠簡單嗎？！？！原本我也覺得指令已經這麼簡單又有縮寫，幹嘛再去折騰弄一堆奇技。</p>
@@ -124,18 +123,18 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git checkout -b raw</div><div class="line">$ git add --all</div><div class="line">$ gti commit -m <span class="string">"Push all my blog sources onto the cloud!"</span></div><div class="line">$ git push origin raw     <span class="comment"># origin 指向原本的 github repo</span></div></pre></td></tr></table></figure>
 <p>總之兩個做法都是再推一個完全不相干的 branch 上去啦哈哈哈（讓 unrelated braches 共存），之後的推了幾個 <code>commits</code> 之後 git graph 會長這樣：</p>
-<img src="/2016/hexo-deploy-through-travisci/branches.png" alt="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ" title="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ">
+<img src="/blog/2016/hexo-deploy-through-travisci/branches.png" alt="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ" title="嗯就是兩條平行線　ヽ(✿ﾟ▽ﾟ)ノ">
 <h3 id="先到-Github-產生-Personal-Access-Tokens"><a href="#先到-Github-產生-Personal-Access-Tokens" class="headerlink" title="先到 Github 產生 Personal Access Tokens"></a>先到 Github 產生 Personal Access Tokens</h3><p>因為 push 須要有使用者權限，而又不想將完整的 credential 交給第三方使用；所以利用簡易授權 token 的方式來限定使用範圍，就好像身分證影本會加註說限XX使用一樣（哈這樣比喻對嗎？）</p>
 <p>到 Github <code>settings</code> 裡申請一個 <code>Personal Access Token</code>，scope 權限開 <code>public_repo</code> 跟 <code>user:email</code> 就好，然後 generate。</p>
 <ul>
 <li>這個 <code>token</code> 請好好保存，不要隨便公開；萬一掉了可以重新產生 (regenerate)。</li>
 </ul>
-<p>（2016.08.17 更新: repo 權限經測試只需 <code>public_repo</code>）<br><img src="/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token"></p>
+<p>（2016.08.17 更新: repo 權限經測試只需 <code>public_repo</code>）<br><img src="/blog/2016/hexo-deploy-through-travisci/github_token.png" alt="Personal Access Token" title="Personal Access Token"></p>
 <h3 id="Travis-CI-console-設定"><a href="#Travis-CI-console-設定" class="headerlink" title="Travis CI console 設定"></a>Travis CI console 設定</h3><p>剛剛申請的 token 是為了給 Travis 在最後階段發布時有 push 到 <code>master</code> 的權限，而且又不想讓 token 外洩所以利用 travis 環境變數設定的方式將資訊透漏給 travis 執行中的實體。</p>
 <ul>
 <li>到相應的 repository <code>settings</code> 底下，把剛剛產生的 token 新增進 Travis 環境變數，這邊的環境變數我取名為 <code>DEPLOY_TOKEN</code>。</li>
 </ul>
-<img src="/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
+<img src="/blog/2016/hexo-deploy-through-travisci/travis_console.png" alt="Travis CI settings" title="Travis CI settings">
 <h3 id="Travis-CI-執行設定：Your-travis-yml-config"><a href="#Travis-CI-執行設定：Your-travis-yml-config" class="headerlink" title="Travis CI 執行設定：Your .travis.yml config"></a>Travis CI 執行設定：Your .travis.yml config</h3><p>附上我的 <code>.travis.yml</code> 做為參考，整個建構流程分三步：取得歷史（fetch old commits history），產生檔案（<code>hexo</code> generate static files），發布結果（<code>git push</code> changes of static files to <code>master</code>）</p>
 <p><strong>必須要先確定 hexo 相關相依都有紀錄在 package.json</strong>，sample: <a href="https://github.com/leVirve/leVirve.github.io/blob/raw/package.json" target="_blank" rel="external">package.json</a></p>
 <ul>
@@ -148,7 +147,7 @@
 <li><p>完工 (ゝ∀･)b！ 記得加上 Line#26 確保 travis build 只 run 有原始碼這個 branch 喔～</p>
 </li>
 </ul>
-<figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> node_js</div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> node_modules</div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> git clone --branch master https://github.com/leVirve/leVirve.github.io public</div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> npm run build</div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> cd public</div><div class="line"><span class="bullet">  -</span> git config user.name <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> git config user.email <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> git add --all .</div><div class="line"><span class="bullet">  -</span> git commit -m <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> git push https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git master</div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> raw</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> <span class="string">node_js</span></div><div class="line"></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"6"</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">node_modules</span></div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">clone</span> <span class="bullet">--branch</span> <span class="string">master</span> <span class="attr">https://github.com/leVirve/leVirve.github.io</span> <span class="string">public</span></div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></div><div class="line"></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">cd</span> <span class="string">public</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"leVirve@Travis"</span> </div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"gae.m.project@gmail.com"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">add</span> <span class="bullet">--all</span> <span class="string">.</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"Travis CI Auto Builder"</span></div><div class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">push</span> <span class="attr">https://$DEPLOY_TOKEN@github.com/leVirve/leVirve.github.io.git</span> <span class="string">master</span></div><div class="line"></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">raw</span></div></pre></td></tr></table></figure>
 <h3 id="Continuous-delivery-持續交付-d-d＇∀＇"><a href="#Continuous-delivery-持續交付-d-d＇∀＇" class="headerlink" title="Continuous delivery 持續交付 d(d＇∀＇)"></a>Continuous delivery 持續交付 d(d＇∀＇)</h3><p>所以現在只要寫了一篇文章，然後把內容 commit 到 <code>raw</code> branch 就會自動透過 travis 建置並發布到 <code>master</code> 分支上（也就是 xxxxx.github.io 顯示的靜態頁面）。</p>
 <p>這有比剛剛那兩行 hexo 指令方便嗎？？？<br>.<br>.<br>.<br>.<br>.<br><strong>並沒有</strong> XDDD 若單比較指令長度，git commit 一次就要打一大堆字</p>
 <p>但是好處（side effects）是：</p>
@@ -181,12 +180,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://levirve.github.io/2016/hexo-deploy-through-travisci/" data-id="cisacq2zq0008n7e6xjv5qxgl" class="article-share-link">Share</a>
+      <a data-url="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/" data-id="cj5qvnc7o000714rp0v4lsucr" class="article-share-link">Share</a>
       
-        <a href="https://levirve.github.io/2016/hexo-deploy-through-travisci/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Travis/">Travis</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Travis/">Travis</a></li></ul>
 
     </footer>
   </div>
@@ -194,7 +193,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/write-c-on-windows-bash/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/write-c-on-windows-bash/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -204,7 +203,7 @@
     </a>
   
   
-    <a href="/2016/dcard-spider-python-package/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2016/dcard-spider-python-package/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Dcard 爬蟲於 Python 實作成果：dcard-spider</div>
     </a>
@@ -228,7 +227,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Spider/">Spider</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/VSCode/">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Windows/">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/爬蟲/">爬蟲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/開箱文/">開箱文</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -238,7 +237,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -251,7 +250,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Salas (leVirve)<br>
+      &copy; 2017 Salas (leVirve)<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -259,9 +258,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
     <a href="https://github.com/leVirve" class="mobile-nav-link">GitHub</a>
   
@@ -270,7 +269,7 @@
 <script>
   var disqus_shortname = 'salasnote';
   
-  var disqus_url = 'https://levirve.github.io/2016/hexo-deploy-through-travisci/';
+  var disqus_url = 'https://levirve.github.io/blog/2016/hexo-deploy-through-travisci/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -285,11 +284,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/blog/js/script.js"></script>
 
 <!-- Google Analytics -->
 <script type="text/javascript">
